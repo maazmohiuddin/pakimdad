@@ -1,0 +1,45 @@
+/*! red.scss | Bulkit | CSS Ninja */
+
+/* ==========================================================================
+Red Theme
+========================================================================== */
+
+/* ==========================================================================
+0. CSS Imports
+========================================================================== */
+
+//1. Bulkit main variables
+@import "abstracts/variables";
+@import "abstracts/themes-red";
+@import "abstracts/shadows";
+
+//2. Bulma source sass
+@import "../sass/bulma.sass";
+
+//3. Layout styles
+@import "layout/all";
+
+//4. Components styles
+@import "components/all";
+
+//5. Features styles
+@import "features/all";
+
+//6. Sections styles
+@import "sections/all";
+
+//7. Commerce styles
+@import "commerce/all";
+
+//8. CSS Utilities
+@import "utilities/all";
+
+//9. Global Media Queries
+@import "layout/responsive";
+
+//10. Slick carousel optimization
+$slick-font-path: "/assets/fonts/";
+$slick-loader-path: "/assets/fonts/";
+
+@import "../../../node_modules/slick-carousel/slick/slick.scss";
+@import "../../../node_modules/slick-carousel/slick/slick-theme.scss";

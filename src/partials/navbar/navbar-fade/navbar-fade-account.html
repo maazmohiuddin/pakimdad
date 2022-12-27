@@ -1,0 +1,66 @@
+<nav
+  class="navbar navbar-wrapper navbar-default navbar-fade is-fixed-top is-transparent"
+>
+  <div class="container">
+    <!-- Brand -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img
+          class="switcher-logo"
+          src="assets/img/logos/pakimdad-logo.png"
+          alt=""
+        />       
+      </a>
+      <div style="margin-left:auto;">
+        {{> account-dropdown-mobile}}
+      </div>
+    </div>
+
+
+    <!-- Navbar menu -->
+    <div class="navbar-menu navbar-start">
+      <!-- Navbar Start -->
+      <div class="navbar-start">
+        <!-- Navbar item -->
+        <a class="navbar-item is-slide" href="services.html"> Services </a>
+        <!-- Navbar item -->
+        <a class="navbar-item is-slide" href="about.html"> About </a>
+        <!-- Navbar item -->
+        <a class="navbar-item is-slide" href="contact.html"> Contact </a>
+      </div>
+
+      <!-- Navbar end -->
+      <div id="nav-avatar" class="navbar-end">
+        <!-- Account button -->
+        {{> account-dropdown}}
+
+      </div>
+    
+      <div id="nav-login" class="navbar-end">
+        <!-- Signup button -->
+        
+        <a class="navbar-item is-slide" href="login.html">
+          Login
+        </a>
+        <a class="navbar-item is-slide" href="signup.html">
+        Signup
+        </a>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  
+if (JSON.parse(localStorage.getItem('isLogin'))==true)
+{
+  document.getElementById("nav-login").style.display = "none";
+}
+else
+{
+  document.getElementById("nav-avatar").style.display = "none";
+}
+
+  document.getElementById("un").innerHTML= JSON.parse(localStorage.getItem('user')).first_name + " " + JSON.parse(localStorage.getItem('user')).last_name;
+</script>  

@@ -1,0 +1,496 @@
+/*! Bulkit | 5.0 | CSS Ninja */
+
+/* ==========================================================================
+Core animation styles
+========================================================================== */
+
+/***
+TABLE OF CONTENTS
+=============================================================================
+0. Default settings
+1. Translate Left
+2. Translate Down
+3. Translate Up
+4. Fade In
+5. Fade In Left
+6. Fade In Right
+7. Fade In Up
+8. Fade In Down
+9. Fade Out Up
+10. Levitate
+11. Gelatine
+12. Unzoom
+13. Dot pulsation
+14. Bouncy entrance
+15. Scale in
+16. Scale in circle
+17. Scale out
+18. Pulsate
+19. Predefined animation delays
+=============================================================================
+***/
+
+/* ==========================================================================
+0. Default settings
+========================================================================== */
+.animated {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+}
+
+/* ==========================================================================
+1. Translate Left
+========================================================================== */
+
+@keyframes translateLeft {
+    from {
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.translateLeft {
+    animation-name: translateLeft;
+    animation-duration: 0.3s;
+    transition: all 500ms cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+
+/* ==========================================================================
+2. Translate Down
+========================================================================== */
+
+@keyframes translateDown {
+    from {
+        transform: translate3d(0, -100px, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.translateDown {
+    animation-name: translateDown;
+    animation-duration: 0.3s;
+    transition: all 500ms cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+
+/* ==========================================================================
+3. Translate Up
+========================================================================== */
+
+@keyframes translateUp {
+    from {
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.translateUp {
+    animation-name: translateUp;
+    animation-duration: 0.3s;
+    transition: all 500ms cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+
+/* ==========================================================================
+4. Fade In
+========================================================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    animation-name: fadeIn;
+}
+
+/* ==========================================================================
+5. Fade In Left
+========================================================================== */
+
+@keyframes fadeInLeft {
+    from {
+        transform: translate3d(20px, 0, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+.preFadeInLeft {
+    opacity: 0;
+}
+
+.fadeInLeft {
+    opacity: 0;
+    animation-name: fadeInLeft;
+}
+
+/* ==========================================================================
+6. Fade In Right
+========================================================================== */
+
+@keyframes fadeInRight {
+    from {
+        transform: translate3d(-20px, 0, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+//Settings
+.preFadeInRight {
+    opacity: 0;
+}
+
+.fadeInRight {
+    opacity: 0;
+    animation-name: fadeInRight;
+}
+
+/* ==========================================================================
+7. Fade In Up
+========================================================================== */
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 20px, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+.preFadeInUp {
+    opacity: 0;
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+}
+
+/* ==========================================================================
+8. Fade In Down
+========================================================================== */
+
+@keyframes fadeInDown {
+    from {
+        transform: translate3d(0, -20px, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+.preFadeInDown {
+    opacity: 0;
+}
+
+.fadeInDown {
+    opacity: 0;
+    animation-name: fadeInDown;
+}
+
+/* ==========================================================================
+9. Fade Out Up
+========================================================================== */
+
+@keyframes fadeOutUp {
+    from {
+        transform: translate3d(0, 20px, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 0;
+    }
+}
+
+//Settings
+.preFadeOutUp {
+    opacity: 1;
+}
+
+.fadeOutUp {
+    opacity: 1;
+    animation-name: fadeOutUp;
+}
+
+/* ==========================================================================
+10. Levitate
+========================================================================== */
+
+@keyframes levitate {
+    from {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(0, 10px);
+    }
+
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+.levitate {
+    animation-name: levitate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/* ==========================================================================
+11. Gelatine
+========================================================================== */
+
+@keyframes gelatine {
+    from, to {
+        transform: scale(1, 1);
+    }
+
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+
+    75% {
+        transform: scale(0.95, 1.05);
+    }
+}
+
+//Settings
+.gelatine {
+    animation: gelatine 0.6s;
+    animation-duration: 0.6s;
+    animation-fill-mode: both;
+}
+
+/* ==========================================================================
+12. Unzoom
+========================================================================== */
+
+@keyframes unzoom {
+    from, to {
+        transform: scale(1, 0);
+    }
+
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+
+    50% {
+        transform: scale(1.1, 0);
+    }
+}
+
+.unzoom {
+    animation: unzoom 0.7s;
+    animation-duration: 0.6s;
+    animation-fill-mode: both;
+}
+
+/* ==========================================================================
+13. Dot pulsation
+========================================================================== */
+
+@keyframes dotPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+14. Bouncy entrance
+========================================================================== */
+
+@keyframes entrance {
+    from {
+        transform: scale(0);
+    }
+
+    25% {
+        transform: scale(1.05);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    75% {
+        transform: scale(1.05);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+.entrance {
+    animation: entrance 0.8s;
+}
+
+/* ==========================================================================
+15. Scale in 
+========================================================================== */
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.scaleIn {
+    animation: scaleIn 0.5s;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* ==========================================================================
+16. Scale in circle (used for modal popup)
+========================================================================== */
+
+@keyframes scaleInCircle {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(7);
+    }
+}
+
+.scaleInCircle {
+    animation: scaleInCircle 0.6s;
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* ==========================================================================
+17. Scale out
+========================================================================== */
+
+@keyframes scaleOut {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
+}
+
+.scaleOut {
+    animation: scaleOut 0.6s;
+}
+
+/* ==========================================================================
+18. Pulsate
+========================================================================== */
+
+@keyframes pulsate {
+    0% {
+        opacity: 0.0;
+    }
+
+    50% {
+        opacity: 1.0;
+    }
+
+    100% {
+        opacity: 0.0;
+    }
+}
+
+.pulsate {
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 0.0;
+}
+
+/* ==========================================================================
+19. Predefined delays
+========================================================================== */
+
+.delay-1 {
+    animation-delay: .25s;
+}
+
+.delay-2 {
+    animation-delay: .5s;
+}
+
+.delay-3 {
+    animation-delay: .75s;
+}
+
+.delay-4 {
+    animation-delay: 1s;
+}
+
+.delay-5 {
+    animation-delay: 1.25s;
+}
+
+.delay-6 {
+    animation-delay: 1.5s;
+}
+
+.delay-7 {
+    animation-delay: 1.75s;
+}
+
+.delay-8 {
+    animation-delay: 2.25s;
+}
+
+.delay-9 {
+    animation-delay: 2.5s;
+}
+
+.delay-10 {
+    animation-delay: 2.75s;
+}
+
+.delay-11 {
+    animation-delay: 3s;
+}

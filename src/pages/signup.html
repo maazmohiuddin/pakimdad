@@ -1,0 +1,220 @@
+---
+layout: default
+title: Sign up
+---
+<style>
+  .error{
+    color: red;
+  }
+</style>
+<!-- Wrapper -->
+<div class="login-wrapper columns is-gapless">
+  <!-- Form section -->
+  <div class="column is-5">
+    <div class="hero is-fullheight">
+      <!-- Header -->
+      <div class="hero-heading">
+        <div class="auth-logo">
+          <a href="/"><img class="top-logo switcher-logo" src="assets/img/logos/pakimdad-logo.png" alt="" /></a>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns">
+            <div class="column is-8 is-offset-2">
+              <div class="auth-content">
+                <h2>Hi There.</h2>
+                <p>Please start by creating an account.</p>
+                <a href="login.html">Have an account? Sign In </a>
+              </div>
+
+              <!-- Sign up form -->
+              <form>
+                <div id="signup-form" class="login-form animated preFadeInLeft fadeInLeft">
+                  <div class="field pb-10">
+                    <div class="control has-icons-right">
+                      <input class="input is-medium has-shadow" type="text" id="first_name" placeholder="Full Name" />
+                      <span class="icon is-medium is-right">
+                        <i class="sl sl-icon-user"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="field pb-10">
+                    <div class="control has-icons-right">
+                      <input class="input is-medium has-shadow" type="text" id="last_name" placeholder="Full Name" />
+                      <span class="icon is-medium is-right">
+                        <i class="sl sl-icon-user"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="field pb-10">
+                    <div class="control has-icons-right">
+                      <input class="input is-medium has-shadow" type="text" id="email" placeholder="Email Address" />
+                      <span class="icon is-medium is-right">
+                        <i class="sl sl-icon-envelope-open"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="field pb-10">
+                    <div class="control has-icons-right">
+                      <input class="input is-medium has-shadow" type="password" id="password" placeholder="Password" />
+                      <span class="icon is-medium is-right">
+                        <i class="sl sl-icon-lock"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <p id="error"></p>
+
+                  <p class="control login">
+                    <button 
+
+                    type="button"class="
+                        button button-cta
+                        primary-btn
+                        btn-align-lg btn-outlined
+                        is-bold is-fullwidth
+                        rounded
+                        raised
+                        no-lh
+                      " id="signup" onClick={usersignup()}>
+
+                      Sign up
+                    </button>
+                  </p>
+                </div>
+              </form>
+
+              <!-- Get contacted form -->
+              <form>
+                <div id="contacted-form" class="login-form animated preFadeInLeft fadeInLeft is-hidden">
+                  <div class="field pb-10">
+                    <div class="control">
+                      <input class="input is-large" type="text" placeholder="Full name *" />
+                    </div>
+                  </div>
+                  <div class="field pb-10">
+                    <div class="control">
+                      <input class="input is-large" type="email" placeholder="Email address *" />
+                    </div>
+                  </div>
+                  <div class="field pb-10">
+                    <div class="control">
+                      <input class="input is-large" type="text" placeholder="Phone" />
+                    </div>
+                  </div>
+                  <p class="control login">
+                    <button 
+                    type="button"class="
+                        button button-cta
+                        secondary-btn
+                        btn-align-lg btn-outlined
+                        is-bold is-fullwidth
+                        rounded
+                        raised
+                        no-lh
+                      ">
+                      Send info
+                    </button>
+                  </p>
+                </div>
+              </form>
+
+              <!-- Toggles-->
+              <div id="contacted" class="
+                  pt-10
+                  pb-10
+                  forgot-password
+                  animated
+                  preFadeInLeft
+                  fadeInLeft
+                ">
+                <p class="has-text-centered">
+                  <a href="#">Or, schedule a demo</a>
+                </p>
+              </div>
+
+              <div id="back-to-signup" class="
+                  pt-10
+                  pb-10
+                  forgot-password
+                  animated
+                  preFadeInLeft
+                  fadeInLeft
+                  is-hidden
+                ">
+                <p class="has-text-centered">
+                  <a href="#">Back to Sign up</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image section (hidden on mobile) -->
+  <div class="column login-column is-7 is-hidden-mobile hero-banner">
+    <div class="
+        hero
+        signup-hero
+        login-hero
+        is-fullheight is-theme-primary is-relative
+      ">
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  <!-- /Image section -->
+</div>
+<!-- /Wrapper-->
+
+<script>
+  async function usersignup() {
+    
+    const first_name = document.getElementById("first_name").value
+    const last_name = document.getElementById("last_name").value
+
+    const email = document.getElementById("email").value
+    const password = document.getElementById("password").value
+
+    const response = await fetch(`https://fypbackendcode.herokuapp.com/api/auth/register`, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({
+        "first_name": first_name,
+        "last_name": last_name,
+        "email": email,
+        "password": password
+      }) // body data type must match "Content-Type" header
+    }).then(res => res.json()).then(data => {
+      if (data.success) {
+        localStorage.setItem("user", JSON.stringify(data.data))
+        localStorage.setItem("token", data.token)
+        localStorage.setItem("isLogin", true)
+        window.location.href="/"        
+      }else{
+        const error = document.getElementById("error")
+        error.setAttribute("class","error")
+
+        error.innerHTML= data.message
+      }
+      
+    });
+  }
+</script>
