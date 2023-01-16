@@ -5,265 +5,334 @@ title: NGO List
 
 {{> navbar-fade-account}}
 
+<style>
+
+.flex-card, .simple-shadow
+{
+  margin: 10px;
+}
+
+</style>
 
 <div class="section is-app-grey">
-    <div class="container">
-  
+  <div class="container">
+
     <div class="section-title-wrapper">
-        <h1 class="title dark-text text-bold main-title is-1 has-text-centered pb-40">
-            NGO List
-        </h1>
+      <h1 class="title dark-text text-bold main-title is-1 has-text-centered pb-40">
+        NGO List
+      </h1>
     </div>
 
 
-      <!--Grid-->
-      <div class="network-grid">
-        <div class="columns is-multiline">
-          <!--User-->
-          <div class="column is-4">
-            <div class="network-card">
-              <div class="network-avatar">
-                <img
-                  class="avatar"
-                  src="https://lh5.googleusercontent.com/p/AF1QipO3YBVQg5EDSwt_Xbz3mEn7b8B3AkApZLsR8gin=w750-h1235-p-k-no"
-                  alt=""
-                  data-demo-src="assets/img/avatars/alan.jpg"
-                />
-              </div>
-              <h3 class="title is-6 is-narrow">PROMISE REHABILITATION CENTER</h3>
-              <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i>  Karachi</p>
-              <div class="network-stats">
-                <div class="network-stat">
-                  <span>114</span>
-                  <span>Reported</span>
-                </div>
-                <div class="network-stat">
-                  <span>231</span>
-                  <span>Rehablitated</span>
-                </div>
-              </div>
-              <a>View Profile</a>
+    <!--Grid-->
+    <div class="network-grid">
+      <div class="columns is-multiline light-bordered">
+        <!--User-->
+        <div class="column is-4">
+          <div class="network-card">
+            <div class="network-avatar">
+              <img class="avatar"
+                src="https://lh5.googleusercontent.com/p/AF1QipO3YBVQg5EDSwt_Xbz3mEn7b8B3AkApZLsR8gin=w750-h1235-p-k-no"
+                alt="" data-demo-src="assets/img/avatars/alan.jpg" />
             </div>
-          </div>
-          <!--User-->
-          <div class="column is-4">
-            <div class="network-card">
-              <div class="network-avatar">
-                <img
-                  class="avatar"
-                  src="https://lh5.googleusercontent.com/-Lc0MAIlful4/AAAAAAAAAAI/AAAAAAAAAAA/qSFPKVawg38/s55-p-k-no-ns-nd/photo.jpg"
-                  alt=""
-                  data-demo-src="assets/img/avatars/betty.jpg"
-                />
+            <h3 class="title is-6 is-narrow">Promise Rehabilitation Center</h3>
+            <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i> Karachi</p>
+            <div class="network-stats">
+              <div class="network-stat">
+                <span>114</span>
+                <span>Reported</span>
               </div>
-              <h3 class="title is-6 is-narrow">Al-Shifa Recovery House</h3>
-              <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i>  Karachi</p>
-              <div class="network-stats">
-                <div class="network-stat">
-                  <span>189</span>
-                  <span>Reported</span>
-                </div>
-                <div class="network-stat">
-                  <span>114</span>
-                  <span>Rehablitated</span>
-                </div>
+              <div class="network-stat">
+                <span>231</span>
+                <span>Rehablitated</span>
               </div>
-              <a>View Profile</a>
             </div>
-          </div>
-          <!--User-->
-          <div class="column is-4">
-            <div class="network-card">
-              <div class="network-avatar">
-                <img
-                  class="avatar"
-                  src="https://lh6.googleusercontent.com/-zZOalEkg3F4/AAAAAAAAAAI/AAAAAAAAAAA/kH9KqXxdSsc/s55-p-k-no-ns-nd/photo.jpg"
-                  alt=""
-                  data-demo-src="assets/img/avatars/janet.jpg"
-                />
-              </div>
-              <h3 class="title is-6 is-narrow">Umeed Medical Center</h3>
-              <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i>  Karachi</p>
-              <div class="network-stats">
-                <div class="network-stat">
-                  <span>329</span>
-                  <span>Reported</span>
+            <a class="modal-trigger" data-modal="card-modal">Open modal
+            </a>
+
+            <!-- Card modal -->
+            <div id="card-modal" class="modal modal-lg">
+              <div class="modal-background"></div>
+              <div class="modal-card modal-content z-index-101">
+                <div class="modal-card-body">
+
+                  <!-- User -->
+                  <div class="flex-card padding-10 mb-10">
+                    <div class="content content-flex column is-multiline">
+                      <div class="has-centered column is-12">
+                        <div class="profile-header">
+                          <div style="padding-bottom: 2% !important;" class="profile-header-inner">
+
+                            <div class="profile-avatar">
+                              <img class="avatar" src="https://via.placeholder.com/250x250" alt=""
+                                data-demo-src="assets/img/avatars/helen.jpg" />
+                              <h2 class="title is-4 is-narrow">Promise Rehabilitation Center</h2>
+                              <p class="subtitle is-6"><i class="im im-icon-Map-Marker2"></i> Karachi</p>
+                              </p>
+                            </div>
+                          </div>
+                          <div class="columns is-vcentered">
+                            <div class="column is-4 is-offset-2">
+                              <div class="icon-counter">
+                                <div class="counter-icon">
+                                  <i class="im im-icon-Find-User"></i>
+                                </div>
+                                <div class="counter counter-number text-bold">463</div>
+                                <div class="counter-text">Cases Reported</div>
+                              </div>
+                            </div>
+                            <div class="column is-4">
+                              <div class="icon-counter">
+                                <div class="counter-icon">
+                                  <i class="im im-icon-Envelope"></i>
+                                </div>
+                                <div class="counter counter-number text-bold">114</div>
+                                <div class="counter-text">Case Resolved</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="columns">
+                            <div class="column is-multiline flex-card simple-shadow">
+                              <p class="title is-5">Phone</p>
+                              <p class="subtitle is-5">+92 3222 386038</p>
+
+                            </div>
+                            <div class="column flex-card simple-shadow">
+                              <p class="title is-5">Website</p>
+                              <p class="subtitle is-5">www.promiserehabcenter.org/<p>
+                            </div>
+                          </div>
+                          <div class="columns ">
+                            <div class="column flex-card simple-shadow">
+                              <p class="title is-6">Address</p>
+                              <p class="subtitle is-6">PROMISE HOUSE، راشد منہاس روڈ، near LUCKY ONE MALL، A-5/1 Block
+                                21 گلبرگ ٹاؤن، کراچی، کراچی, KARACHI, سندھ 75950</p>
+                            </div>
+                            <div class="column flex-card simple-shadow">
+                              <p class="title is-6">Address</p>
+                              <p class="subtitle is-6">PROMISE HOUSE، راشد منہاس روڈ، near LUCKY ONE MALL، A-5/1 Block
+                                21 گلبرگ ٹاؤن، کراچی، کراچی, KARACHI, سندھ 75950</p>
+                            </div>
+                          </div>
+
+                          <div class="columns">
+                            <iframe class="column" src="https://snazzymaps.com/embed/454121" width="100%" height="300px"
+                              style="border:none;"></iframe>
+                          </div>
+
+
+                        </div>
+
+
+                      </div>
+
+                      <!--  -->
+                    </div>
+                  </div>
+                  <!-- /User -->
                 </div>
-                <div class="network-stat">
-                  <span>91</span>
-                  <span>Rehablitated</span>
-                </div>
+                <footer class="modal-card-foot">
+                  <button class="button raised primary-btn modal-dismiss">Close</button>
+                </footer>
               </div>
-              <a>View Profile</a>
             </div>
-          </div>
-          <!--User-->
-          <div class="column is-4">
-            <div class="network-card">
-              <div class="network-avatar">
-                <img
-                  class="avatar"
-                  src="https://lh4.googleusercontent.com/-qoucyUAeiqQ/AAAAAAAAAAI/AAAAAAAAAAA/E2feJop8LN4/s55-p-k-no-ns-nd/photo.jpg"
-                  alt=""
-                  data-demo-src="assets/img/avatars/marc.jpg"
-                />
-              </div>
-              <h3 class="title is-6 is-narrow">Addicare Rehabilitation Centre</h3>
-              <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i>  Karachi</p>
-              <div class="network-stats">
-                <div class="network-stat">
-                  <span>457</span>
-                  <span>Reported</span>
-                </div>
-                <div class="network-stat">
-                  <span>123</span>
-                  <span>Rehablitated</span>
-                </div>
-              </div>
-              <a>View Profile</a>
-            </div>
-          </div>
-          <!--User-->
-          <div class="column is-4">
-            <div class="network-card">
-              <div class="network-avatar">
-                <img
-                  class="avatar"
-                  src="https://lh5.googleusercontent.com/-3B6vjcHC8C8/AAAAAAAAAAI/AAAAAAAAAAA/lar-hp9hnPk/s55-p-k-no-ns-nd/photo.jpg"
-                  alt=""
-                  data-demo-src="assets/img/avatars/sally.jpg"
-                />
-              </div>
-              <h3 class="title is-6 is-narrow">FH Neuro Rehab Clinic</h3>
-              <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i>  Karachi</p>
-              <div class="network-stats">
-                <div class="network-stat">
-                  <span>113</span>
-                  <span>Reported</span>
-                </div>
-                <div class="network-stat">
-                  <span>51</span>
-                  <span>Rehablitated</span>
-                </div>
-              </div>
-              <a>View Profile</a>
-            </div>
-          </div>
-          <!--User-->
-          <div class="column is-4">
-            <div class="network-card">
-              <div class="network-avatar">
-                <img
-                  class="avatar"
-                  src="https://lh4.googleusercontent.com/-ha75BarNIFo/AAAAAAAAAAI/AAAAAAAAAAA/ILBLXN0dTX8/s55-p-k-no-ns-nd/photo.jpg"
-                  alt=""
-                  data-demo-src="assets/img/avatars/terry.jpg"
-                />
-              </div>
-              <h3 class="title is-6 is-narrow">Brain & Mind Diagnostics & Rehabilitation Center</h3>
-              <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i>  Lahore</p>
-              <div class="network-stats">
-                <div class="network-stat">
-                  <span>219</span>
-                  <span>Reported</span>
-                </div>
-                <div class="network-stat">
-                  <span>47</span>
-                  <span>Rehablitated</span>
-                </div>
-              </div>
-              <a>View Profile</a>
-            </div>
-          </div>
-          <!--User-->
-          <div class="column is-4">
-            <div class="network-card">
-              <div class="network-avatar">
-                <img
-                  class="avatar"
-                  src="https://via.placeholder.com/250x250"
-                  alt=""
-                  data-demo-src="assets/img/avatars/nick.jpg"
-                />
-              </div>
-              <h3 class="title is-6 is-narrow">Nick Fraiser</h3>
-              <p class="subtitle is-size-7">Software Engineer</p>
-              <div class="network-stats">
-                <div class="network-stat">
-                  <span>721</span>
-                  <span>Reported</span>
-                </div>
-                <div class="network-stat">
-                  <span>119</span>
-                  <span>Rehablitated</span>
-                </div>
-              </div>
-              <a>View Profile</a>
-            </div>
-          </div>
-          <!--User-->
-          <div class="column is-4">
-            <div class="network-card">
-              <div class="network-avatar">
-                <img
-                  class="avatar"
-                  src="https://via.placeholder.com/250x250"
-                  alt=""
-                  data-demo-src="assets/img/avatars/nina.jpg"
-                />
-              </div>
-              <h3 class="title is-6 is-narrow">Nina Evans</h3>
-              <p class="subtitle is-size-7">Product Manager</p>
-              <div class="network-stats">
-                <div class="network-stat">
-                  <span>511</span>
-                  <span>Reported</span>
-                </div>
-                <div class="network-stat">
-                  <span>88</span>
-                  <span>Rehablitated</span>
-                </div>
-              </div>
-              <a>View Profile</a>
-            </div>
-          </div>
-          <!--User-->
-          <div class="column is-4">
-            <div class="network-card">
-              <div class="network-avatar">
-                <img
-                  class="avatar"
-                  src="https://via.placeholder.com/250x250"
-                  alt=""
-                  data-demo-src="assets/img/avatars/marge.jpg"
-                />
-              </div>
-              <h3 class="title is-6 is-narrow">Marge Harris</h3>
-              <p class="subtitle is-size-7">Frontend Engineer</p>
-              <div class="network-stats">
-                <div class="network-stat">
-                  <span>598</span>
-                  <span>Reported</span>
-                </div>
-                <div class="network-stat">
-                  <span>74</span>
-                  <span>Rehablitated</span>
-                </div>
-              </div>
-              <a>View Profile</a>
-            </div>
+
           </div>
         </div>
-
-        <div class="load-more">
-            <button class="button">Load More</button>
+        <!--User-->
+        <div class="column is-4">
+          <div class="network-card">
+            <div class="network-avatar">
+              <img class="avatar"
+                src="https://lh5.googleusercontent.com/-Lc0MAIlful4/AAAAAAAAAAI/AAAAAAAAAAA/qSFPKVawg38/s55-p-k-no-ns-nd/photo.jpg"
+                alt="" data-demo-src="assets/img/avatars/betty.jpg" />
+            </div>
+            <h3 class="title is-6 is-narrow">Al-Shifa Recovery House</h3>
+            <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i> Karachi</p>
+            <div class="network-stats">
+              <div class="network-stat">
+                <span>189</span>
+                <span>Reported</span>
+              </div>
+              <div class="network-stat">
+                <span>114</span>
+                <span>Rehablitated</span>
+              </div>
+            </div>
+            <a>View Profile</a>
+          </div>
         </div>
-
+        <!--User-->
+        <div class="column is-4">
+          <div class="network-card">
+            <div class="network-avatar">
+              <img class="avatar"
+                src="https://lh6.googleusercontent.com/-zZOalEkg3F4/AAAAAAAAAAI/AAAAAAAAAAA/kH9KqXxdSsc/s55-p-k-no-ns-nd/photo.jpg"
+                alt="" data-demo-src="assets/img/avatars/janet.jpg" />
+            </div>
+            <h3 class="title is-6 is-narrow">Umeed Medical Center</h3>
+            <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i> Karachi</p>
+            <div class="network-stats">
+              <div class="network-stat">
+                <span>329</span>
+                <span>Reported</span>
+              </div>
+              <div class="network-stat">
+                <span>91</span>
+                <span>Rehablitated</span>
+              </div>
+            </div>
+            <a>View Profile</a>
+          </div>
+        </div>
+        <!--User-->
+        <div class="column is-4">
+          <div class="network-card">
+            <div class="network-avatar">
+              <img class="avatar"
+                src="https://lh4.googleusercontent.com/-qoucyUAeiqQ/AAAAAAAAAAI/AAAAAAAAAAA/E2feJop8LN4/s55-p-k-no-ns-nd/photo.jpg"
+                alt="" data-demo-src="assets/img/avatars/marc.jpg" />
+            </div>
+            <h3 class="title is-6 is-narrow">Addicare Rehabilitation Centre</h3>
+            <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i> Karachi</p>
+            <div class="network-stats">
+              <div class="network-stat">
+                <span>457</span>
+                <span>Reported</span>
+              </div>
+              <div class="network-stat">
+                <span>123</span>
+                <span>Rehablitated</span>
+              </div>
+            </div>
+            <a>View Profile</a>
+          </div>
+        </div>
+        <!--User-->
+        <div class="column is-4">
+          <div class="network-card">
+            <div class="network-avatar">
+              <img class="avatar"
+                src="https://lh5.googleusercontent.com/-3B6vjcHC8C8/AAAAAAAAAAI/AAAAAAAAAAA/lar-hp9hnPk/s55-p-k-no-ns-nd/photo.jpg"
+                alt="" data-demo-src="assets/img/avatars/sally.jpg" />
+            </div>
+            <h3 class="title is-6 is-narrow">FH Neuro Rehab Clinic</h3>
+            <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i> Karachi</p>
+            <div class="network-stats">
+              <div class="network-stat">
+                <span>113</span>
+                <span>Reported</span>
+              </div>
+              <div class="network-stat">
+                <span>51</span>
+                <span>Rehablitated</span>
+              </div>
+            </div>
+            <a>View Profile</a>
+          </div>
+        </div>
+        <!--User-->
+        <div class="column is-4">
+          <div class="network-card">
+            <div class="network-avatar">
+              <img class="avatar"
+                src="https://lh4.googleusercontent.com/-ha75BarNIFo/AAAAAAAAAAI/AAAAAAAAAAA/ILBLXN0dTX8/s55-p-k-no-ns-nd/photo.jpg"
+                alt="" data-demo-src="assets/img/avatars/terry.jpg" />
+            </div>
+            <h3 class="title is-6 is-narrow">Brain & Mind Diagnostics & Rehabilitation Center</h3>
+            <p class="subtitle is-size-7"><i class="im im-icon-Map-Marker2"></i> Lahore</p>
+            <div class="network-stats">
+              <div class="network-stat">
+                <span>219</span>
+                <span>Reported</span>
+              </div>
+              <div class="network-stat">
+                <span>47</span>
+                <span>Rehablitated</span>
+              </div>
+            </div>
+            <a>View Profile</a>
+          </div>
+        </div>
+        <!--User-->
+        <div class="column is-4">
+          <div class="network-card">
+            <div class="network-avatar">
+              <img class="avatar" src="https://via.placeholder.com/250x250" alt=""
+                data-demo-src="assets/img/avatars/nick.jpg" />
+            </div>
+            <h3 class="title is-6 is-narrow">Nick Fraiser</h3>
+            <p class="subtitle is-size-7">Software Engineer</p>
+            <div class="network-stats">
+              <div class="network-stat">
+                <span>721</span>
+                <span>Reported</span>
+              </div>
+              <div class="network-stat">
+                <span>119</span>
+                <span>Rehablitated</span>
+              </div>
+            </div>
+            <a>View Profile</a>
+          </div>
+        </div>
+        <!--User-->
+        <div class="column is-4">
+          <div class="network-card">
+            <div class="network-avatar">
+              <img class="avatar" src="https://via.placeholder.com/250x250" alt=""
+                data-demo-src="assets/img/avatars/nina.jpg" />
+            </div>
+            <h3 class="title is-6 is-narrow">Nina Evans</h3>
+            <p class="subtitle is-size-7">Product Manager</p>
+            <div class="network-stats">
+              <div class="network-stat">
+                <span>511</span>
+                <span>Reported</span>
+              </div>
+              <div class="network-stat">
+                <span>88</span>
+                <span>Rehablitated</span>
+              </div>
+            </div>
+            <a>View Profile</a>
+          </div>
+        </div>
+        <!--User-->
+        <div class="column is-4">
+          <div class="network-card">
+            <div class="network-avatar">
+              <img class="avatar" src="https://via.placeholder.com/250x250" alt=""
+                data-demo-src="assets/img/avatars/marge.jpg" />
+            </div>
+            <h3 class="title is-6 is-narrow">Marge Harris</h3>
+            <p class="subtitle is-size-7">Frontend Engineer</p>
+            <div class="network-stats">
+              <div class="network-stat">
+                <span>598</span>
+                <span>Reported</span>
+              </div>
+              <div class="network-stat">
+                <span>74</span>
+                <span>Rehablitated</span>
+              </div>
+            </div>
+            <a>View Profile</a>
+          </div>
+        </div>
       </div>
+
+      <div class="load-more">
+        <button class="button">Load More</button>
+      </div>
+
     </div>
   </div>
 </div>
 </div>
+</div>
+
+
 
 
 {{> footer-side-light}}

@@ -64,10 +64,9 @@ title: Login
                         no-lh
                       " 
                       id="login"
-                      onClick={userlogin()};>
+                      onClick={userlogin()}>
                       Log in
                     </button>
-                    <img id="loading-indicator" style="display: none;" src="assets/img/loader.gif">
                   </p>
                 </div>
               </form>
@@ -84,8 +83,7 @@ title: Login
                       </span>
                     </div>
                   </div>
-                  <!-- Submit -->   
-
+                  <!-- Submit -->
                   <p class="control login">
                     <button class="
                         button button-cta
@@ -130,7 +128,7 @@ title: Login
                 </p>
               </div>
             </div>
-            </div>
+            <div class="column"></div>
           </div>
         </div>
       </div>
@@ -184,12 +182,4 @@ error.setAttribute("class","error")
       }
     });
   }
-
-  function showLoadingIndicator() {
-  var loadingIndicator = document.getElementById('loading-indicator');
-  loadingIndicator.style.display = 'block';
-
-  // Perform the action that you want to execute here.
-}
-
 </script>
