@@ -241,7 +241,7 @@ title: Name Search
     function searchbyname() {
 
         const name = document.getElementById("searchname").value
-        const res = fetch(`https://fypbackendcode.herokuapp.com/api/query?first_name=${name}`, {
+        const res = fetch(`https://ribbon-uncovered-rayon.glitch.me/api/query?first_name=${name}`, {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem("token")}`
@@ -268,7 +268,7 @@ ${data.data[i].age}
 
 </td>
 <td>
-    <img src=https://fypbackendcode.herokuapp.com/query/${data.data[i].images[0]} class="profilepic">
+    <img src=https://ribbon-uncovered-rayon.glitch.me/query/image/${data.data[i].images} class="profilepic">
 </td>
 <td>
     <button class="

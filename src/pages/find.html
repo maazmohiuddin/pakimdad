@@ -4,484 +4,526 @@ title: Find
 ---
 {{> navbar-fade-account}}
 
-<style>
-  textarea {
-    width: 100%;
-    height: 150px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    font-size: 16px;
-    resize: none;
-  }
 
-  .error {
-    color: red;
-
-  }
-
-  .success {
-    color: green;
-  }
-</style>
+    <!-- Double column Step Form -->
 
 
-
-
-
-<body>
-  <div class="pageloader"></div>
-  <div class="infraloader is-active"></div>
-  <!DOCTYPE html>
-  <html lang="en">
-
-
-  <body class="is-theme-core">
-    <div class=<div class="infraloader is-active"></div>
-
-    <!-- Hero -->
-    <div class="hero is-relative is-fullheight is-app-grey" data-page-theme="teal">
-      <!--Nav-->
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns has-text-centered">
-            <!-- Caption -->
-            <div class="column is-8 is-offset-2 is-hero-caption is-centered">
-              <h1 class="title is-1">Search Missing Person</h1>
-              <h2 class="subtitle pt-10" style="margin-bottom:33px !important ;">
-                Search through out community contributed database
-              </h2>
-              <div class="buttons">
-                <div class="grid-system is-medium">
-                  <div class="column is-12">
-                    <div class="flex-card simple-shadow">
-                      <div class="card-body">
-                        <div class="has-text-centered pb-20">
-                          <h3 class="title is-4 is-styled">Enter info about missing person</h3>
-                        </div>
-                        <!-- <form class="padding-20"> -->
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="text" id="firstName">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>First Name</label>
-                        </div>
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="text" id="lastName">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>Last Name</label>
-                        </div>
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="text" id="email">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>Email</label>
-                        </div>
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="text" id="number">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>Phone Number</label>
-                        </div>
-
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="text" id="nic">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>NIC</label>
-                        </div>
-
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="text" id="from_where">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>From where He / She lost</label>
-                        </div>
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="text" id="location">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>Address</label>
-                        </div>
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="Number" id="age">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>Age</label>
-                        </div>
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="text" id="height">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>Height</label>
-                        </div>
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="text" id="color">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>Color</label>
-                        </div>
-                        <div class="control-material is-secondary">
-                          <input class="material-input" type="text" id="identity">
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>Idea Identity</label>
-                        </div>
-                        <div class="control-material is-secondary">
-                          <!-- <input class="material-input" type="Number" > -->
-                          <textarea id="info"></textarea>
-                          <span class="material-highlight"></span>
-                          <span class="bar"></span>
-                          <label>Other information</label>
-                        </div>
-                        <div class="file-input-wrapper mt-20">
-                          <div class="control field-input-wrapper">
-                            <div class="field-input">
-                              <input type="file" id="file">
-                              <span class="button btn-align secondary-btn raised">Attach Image</span>
-                              <span class="label" data-js-label="">No file selected</span>
-                            </div>
+    <div class="columns mt-20 pb-60">
+      <div class="column is-8 is-offset-2">
+        <!-- Wrapper -->
+        <div class="steps-wrapper is-double-column">
+          <!-- Steps Indicators -->
+          <div class="steps" id="stepsDemo3">
+            <!-- Indicator -->
+            <div class="step-item is-active">
+              <div class="step-marker">1</div>
+              <div class="step-details">
+                <p class="step-title">Basic Info about missing person</p>
+              </div>
+            </div>
+            <!-- Indicator -->
+            <div class="step-item">
+              <div class="step-marker">2</div>
+              <div class="step-details">
+                <p class="step-title">How should we contact you?</p>
+              </div>
+            </div>
+            <!-- Indicator -->
+            <div class="step-item">
+              <div class="step-marker">3</div>
+              <div class="step-details">
+                <p class="step-title">Upload there Image</p>
+              </div>
+            </div>
+            <!-- Indicator -->
+            <div class="step-item">
+              <div class="step-marker">4</div>
+              <div class="step-details">
+                <p class="step-title">Finish</p>
+              </div>
+            </div>
+            <!-- Steps content wrapper -->
+            <div class="steps-content">
+              <!-- Step content -->
+              <div
+                class="
+                  step-content
+                  has-text-centered
+                  is-active
+                  animated
+                  preFadeInUp
+                  fadeInUp
+                "
+              >
+                <div class="columns">
+                  <!-- Column -->
+                  <div class="column is-6">
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">First Name</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control">
+                            <input
+                              class="input"
+                              name="username4"
+                              id="username4"
+                              type="text"
+                              placeholder="Username"
+                              autofocus
+                              data-validate="require"
+                            />
                           </div>
                         </div>
-                        <p id="error"></p>
-
-                        <div class="mt-20 has-text-right">
-
-                          <button type="button" id="query"
-                            class="button btn-align button-cta no-lh secondary-btn raised is-bold">
-                            Submit
-                          </button>
-                          
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Last Name</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control has-icon has-icon-right">
+                            <input
+                              class="input"
+                              type="text"
+                              name="password4"
+                              id="password4"
+                              placeholder="Password"
+                              data-validate="require"
+                            />
+                          </div>
                         </div>
-                        <!-- </form> -->
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Age</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control has-icon has-icon-right">
+                            <input
+                              class="input"
+                              type="number"
+                              name="password_confirm4"
+                              id="password_confirm4"
+                              placeholder="Confirm password"
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Column -->
+                  <div class="column is-6">
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Height</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control">
+                            <input
+                              class="input"
+                              name="company"
+                              id="company"
+                              type="number"
+                              placeholder="Company name"
+                              autofocus
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Extra Info</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control has-icon has-icon-right">
+                            <input
+                              class="input"
+                              type="text"
+                              name="department"
+                              id="department"
+                              placeholder="Department"
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Location</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control has-icon has-icon-right">
+                            <input
+                              class="input"
+                              type="text"
+                              name="location"
+                              id="location"
+                              placeholder="Location"
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <!-- Step content -->
+              <div
+                class="
+                  step-content
+                  has-text-centered
+                  animated
+                  preFadeInUp
+                  fadeInUp
+                "
+              >
+                <div class="columns">
+                  <!-- Column -->
+                  <div class="column is-6">
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Your Name</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control">
+                            <input
+                              class="input"
+                              name="firstname4"
+                              id="firstname4"
+                              type="text"
+                              placeholder="First name"
+                              autofocus
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Email</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control has-icon has-icon-right">
+                            <input
+                              class="input"
+                              type="email"
+                              name="lastname4"
+                              id="lastname4"
+                              placeholder="Last name"
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Phone Number</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control has-icon has-icon-right">
+                            <input
+                              class="input"
+                              type="tel"
+                              name="email4"
+                              id="email4"
+                              placeholder="Email"
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Column -->
+                  <div class="column is-6">
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Alternative Phone Number</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control">
+                            <input
+                              class="input"
+                              name="position"
+                              id="position"
+                              type="tel"
+                              placeholder="Position"
+                              autofocus
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Recruited since</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control has-icon has-icon-right">
+                            <input
+                              class="input"
+                              type="text"
+                              name="joined"
+                              id="joined"
+                              placeholder="Joined on"
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Completed Projects</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control has-icon has-icon-right">
+                            <input
+                              class="input"
+                              type="number"
+                              name="projects"
+                              id="projects"
+                              placeholder="Number of completed projects"
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Step content -->
+              <div
+                class="
+                  step-content
+                  has-text-centered
+                  animated
+                  preFadeInUp
+                  fadeInUp
+                "
+              >
+                <div class="columns">
+                  <!-- Column -->
+                  <div class="column is-6">
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Facebook account</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control">
+                            <input
+                              class="input"
+                              name="facebook4"
+                              id="facebook4"
+                              type="text"
+                              placeholder="Facebook account url"
+                              autofocus
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Twitter account</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control">
+                            <input
+                              class="input"
+                              name="twitter4"
+                              id="twitter4"
+                              type="text"
+                              placeholder="Twitter account url"
+                              autofocus
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Dribbble account</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control">
+                            <input
+                              class="input"
+                              name="dribbble4"
+                              id="dribbble4"
+                              type="text"
+                              placeholder="Dribbble account url"
+                              autofocus
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Column -->
+                  <div class="column is-6">
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Linkedin account</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control">
+                            <input
+                              class="input"
+                              name="linkedin"
+                              id="linkedin"
+                              type="text"
+                              placeholder="Linkedin account url"
+                              autofocus
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Behance account</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control">
+                            <input
+                              class="input"
+                              name="behance"
+                              id="behance"
+                              type="text"
+                              placeholder="Behance account url"
+                              autofocus
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Field -->
+                    <div class="field">
+                      <div class="field-label is-normal">
+                        <label class="label">Reddit account</label>
+                      </div>
+                      <div class="field-body">
+                        <div class="field">
+                          <div class="control">
+                            <input
+                              class="input"
+                              name="reddit"
+                              id="reddit"
+                              type="text"
+                              placeholder="Reddit account url"
+                              autofocus
+                              data-validate="require"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Step content -->
+              <div
+                class="
+                  step-content
+                  has-text-centered
+                  animated
+                  preFadeInUp
+                  fadeInUp
+                "
+              >
+                <img
+                  class="confirm-image"
+                  src="assets/img/graphics/icons/demo/account.svg"
+                />
+                <h1 class="title is-5">Your account is now created!</h1>
+                <p class="pt-10 pb-10 is-muted">
+                  You can now login with your credentials and start using the
+                  App
+                </p>
+              </div>
+            </div>
+            <!-- Steps Navigation -->
+            <div class="steps-actions">
+              <div class="steps-action">
+                <a
+                  href="#"
+                  data-nav="previous"
+                  class="button is-light button-cta is-bold btn-align"
+                  >Back</a
+                >
+                <a
+                  href="#"
+                  data-nav="next"
+                  class="
+                    button
+                    secondary-btn
+                    button-cta
+                    is-bold
+                    raised
+                    btn-align
+                  "
+                  >Next</a
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    <!-- Card counter -->
-    <div id="numbers-2" class="section section-feature-grey is-medium">
-      <div class="container">
-        <div class="section-title-wrapper">
-          <div class="bg-number">1</div>
-          <h2 class="title section-title has-text-centered dark-text text-bold">
-            Hover cards
-          </h2>
-        </div>
-
-        <div class="content-wrapper">
-          <!-- Counters -->
-          <div class="columns is-vcentered has-text-centered">
-            <div class="column is-3">
-              <div class="card-counter">
-                <div class="flex-card light-bordered hover-inset">
-                  <div class="round-icon">
-                    <i class="material-icons">face</i>
-                  </div>
-                  <div class="counter counter-number text-bold">528</div>
-                  <div class="counter-text">Active users</div>
-                </div>
-              </div>
-            </div>
-            <div class="column is-3">
-              <div class="card-counter">
-                <div class="flex-card light-bordered hover-inset">
-                  <div class="round-icon">
-                    <i class="material-icons">insert_drive_file</i>
-                  </div>
-                  <div class="counter counter-number text-bold">150000</div>
-                  <div class="counter-text">Files shared</div>
-                </div>
-              </div>
-            </div>
-            <div class="column is-3">
-              <div class="card-counter">
-                <div class="flex-card light-bordered hover-inset">
-                  <div class="round-icon">
-                    <i class="material-icons">cloud_download</i>
-                  </div>
-                  <div class="counter counter-number text-bold">8924</div>
-                  <div class="counter-text">Product downloads</div>
-                </div>
-              </div>
-            </div>
-            <div class="column is-3">
-              <div class="card-counter">
-                <div class="flex-card light-bordered hover-inset">
-                  <div class="round-icon">
-                    <i class="material-icons">attach_file</i>
-                  </div>
-                  <div class="counter counter-number text-bold">993</div>
-                  <div class="counter-text">Attachments uploaded</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    {{> footer-side-light}}
-
-    <!-- Back To Top Button -->
-    <div id="backtotop"><a href="#"></a></div>
-
-    <!-- /Chat widget -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/core.js"></script>
-  </body>
-
-  </html>
-  <!-- Side navigation -->
-  <div class="side-navigation-menu">
-    <!-- Categories menu -->
-    <div class="category-menu-wrapper">
-      <!-- Menu -->
-      <ul class="categories">
-        <li class="square-logo"><img src="assets/img/logos/square-white.svg" alt=""></li>
-        <li class="category-link is-active" data-navigation-menu="demo-pages"><i class="sl sl-icon-layers"></i></li>
-        <li class="category-link" data-navigation-menu="onepagers"><i class="sl sl-icon-docs"></i></li>
-        <li class="category-link" data-navigation-menu="components"><i class="sl sl-icon-grid"></i></li>
-      </ul>
-      <!-- Menu -->
-
-      <ul class="author">
-        <li>
-          <!-- Theme author -->
-          <a href="https://cssninja.io" target="_blank">
-            <img class="main-menu-author" src="assets/img/logos/cssninja.svg" alt="">
-          </a>
-        </li>
-      </ul>
-    </div>
-    <!-- /Categories menu -->
-
-    <!-- Navigation menu -->
-    <div id="demo-pages" class="navigation-menu-wrapper animated preFadeInRight fadeInRight">
-      <!-- Navigation Header -->
-      <div class="navigation-menu-header">
-        <span>Demo pages</span>
-        <a class="ml-auto hamburger-btn navigation-close" href="javascript:void(0);">
-          <span class="menu-toggle">
-            <span class="icon-box-toggle">
-              <span class="rotate">
-                <i class="icon-line-top"></i>
-                <i class="icon-line-center"></i>
-                <i class="icon-line-bottom"></i>
-              </span>
-            </span>
-          </span>
-        </a>
-      </div>
-      <!-- Navigation Body -->
-    </div>
-    <!-- Navigation menu -->
-    <div id="onepagers" class="navigation-menu-wrapper animated preFadeInRight fadeInRight is-hidden">
-      <!-- Navigation Header -->
-      <div class="navigation-menu-header">
-        <span>Sub Pages</span>
-        <a class="ml-auto hamburger-btn navigation-close" href="javascript:void(0);">
-          <span class="menu-toggle">
-            <span class="icon-box-toggle">
-              <span class="rotate">
-                <i class="icon-line-top"></i>
-                <i class="icon-line-center"></i>
-                <i class="icon-line-bottom"></i>
-              </span>
-            </span>
-          </span>
-        </a>
-      </div>
-      <!-- Navigation body -->
-    </div>
-    <!-- Navigation menu -->
-    <div id="components" class="navigation-menu-wrapper animated preFadeInRight fadeInRight is-hidden">
-      <!-- Navigation Header -->
-      <div class="navigation-menu-header">
-        <span>Components</span>
-        <a class="ml-auto hamburger-btn navigation-close" href="javascript:void(0);">
-          <span class="menu-toggle">
-            <span class="icon-box-toggle">
-              <span class="rotate">
-                <i class="icon-line-top"></i>
-                <i class="icon-line-center"></i>
-                <i class="icon-line-bottom"></i>
-              </span>
-            </span>
-          </span>
-        </a>
-      </div>
-      <!-- Navigation body -->
-
-    </div>
-    <!-- /Navigation menu -->
   </div>
-  <!-- /Side navigation -->
-  <!-- Back To Top Button -->
-  <div id="backtotop"><a href="#"></a></div>
+</div>
 
 
-
-
-  <!-- <script src="../assets/js/find.js"></script> -->
-  <!-- <script src="assets/js/app.js"></script> -->
-  <script src="assets/js/core.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    // const query = document.getElementById("query")
-
-    $("#query").on("click",function(){
-      querysubmit();
-    });
-
-    function querysubmit(){
-      const error = document.getElementById("error");
-
-      if(!localStorage.getItem("token")){
-
-  error.setAttribute("class", "error")
-                error.innerHTML = "Login first"
-                return ;
-      }
-      const file = document.getElementById("file").files;
-      const payload = new FormData();
-      for (var i = 0; i < file.length; i++) {  
-        payload.append("file", file[i]);
-      }
-
-          //https://fypbackendcode.herokuapp.com
-  
-          const res = fetch(`https://fypbackendcode.herokuapp.com/api/query/image`, {
-            method: 'POST',
-            hwaders: { "Content-type": "form-data" },
-            body: payload
-          }).then(res => res.json()).then(async (data) => {
-      
-            const firstName = document.getElementById("firstName");
-            const lastName = document.getElementById("lastName");
-            const email = document.getElementById("email");
-            const number = document.getElementById("number");
-            const location = document.getElementById("location");
-            const age = document.getElementById("age");
-            const color = document.getElementById("color");
-            const height = document.getElementById("height");
-            const identity = document.getElementById("identity");
-            const info = document.getElementById("info");
-            const from_where = document.getElementById("from_where");
-            const nic = document.getElementById("nic");
-      
-            const datapayload = {
-              images: data.data,
-              first_name: firstName?.value,
-              last_name: lastName?.value,
-              email: email?.value,
-              contact: number?.value,
-              address: location?.value,
-              color: color?.value,
-              age: age?.value,
-              height: height?.value,
-              info: info?.value,
-              ideal_identity: identity?.value,
-              from_where: from_where?.value,
-              nic: nic?.value,
-              user_id: localStorage.getItem("user")?._id
-            }
-            
-            const response = await fetch(`https://fypbackendcode.herokuapp.com/api/query`, {
-              method: 'POST', // *GET, POST, PUT, DELETE, etc.S
-              headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
-              },
-              body: JSON.stringify(datapayload) // body data type must match "Content-Type" header
-            }).then(response =>response.json()).then(data => {
-              if (data.success) {
-                error.setAttribute("class", "success");
-                error.innerHTML = data.message;
-                
-
-                if(firstName.value != ""){
-                  firstName.value = "";                  
-                }
-                
-                if(lastName.value != ""){
-                  lastName.value = "";                  
-                }
-      
-                
-                if(email.value != ""){
-                  email.value = "";                  
-                }
-                if(number.value != ""){
-                  number.value = "";                  
-                }
-                if(location.value != ""){
-                  location.value = "";                  
-                }
-                if(color.value != ""){
-                  color.value = "";                  
-                }
-      
-                
-                
-                if(age.value != ""){
-                  age.value = "";                  
-                }
-      
-                
-                
-      
-                if(height.value != ""){
-                  height.value = "";                  
-                }
-      
-                
-                
-                if(info.value != ""){
-                  info.value = "";                  
-                }
-      
-                
-               
-                if(identity.value != ""){
-                  identity.value = "";                  
-                }
-      
-                if(from_where.value != ""){
-                  from_where.value = "";                  
-                }
-      
-                
-               
-                if(nic.value != ""){
-                  nic.value = "";                  
-                }
-      
-                
-                
-      
-      
-              } else {
-                error.setAttribute("class", "error")
-                error.innerHTML = data.message
-              }
-            })
-          })
-  
-    }
-  </script>
-</body>
-
-</html>
+{{> footer-side-light}}
 

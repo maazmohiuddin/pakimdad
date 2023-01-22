@@ -1,0 +1,425 @@
+<style>
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      resize: none;
+    }
+  
+    .error {
+      color: red;
+  
+    }
+  
+    .success {
+      color: green;
+    }
+  </style>
+  
+  
+  
+  
+  
+  <body>
+    <div class="pageloader"></div>
+    <div class="infraloader is-active"></div>
+    <!DOCTYPE html>
+    <html lang="en">
+  
+  
+    <body class="is-theme-core">
+      <div class=<div class="infraloader is-active"></div>
+  
+      <!-- Hero -->
+      <div class="hero is-relative is-fullheight is-app-grey" data-page-theme="teal">
+        <!--Nav-->
+        <div class="hero-body">
+          <div class="container">
+            <div class="columns has-text-centered">
+              <!-- Caption -->
+              <div class="column is-8 is-offset-2 is-hero-caption is-centered">
+                <h1 class="title is-1">Search Missing Person</h1>
+                <h2 class="subtitle pt-10" style="margin-bottom:33px !important ;">
+                  Search through out community contributed database
+                </h2>
+                <div class="buttons">
+                  <div class="grid-system is-medium">
+                    <div class="column is-12">
+                      <div class="flex-card simple-shadow">
+                        <div class="card-body">
+                          <div class="has-text-centered pb-20">
+                            <h3 class="title is-4 is-styled">Enter info about missing person</h3>
+                          </div>
+                          <!-- <form class="padding-20"> -->
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="text" id="firstName">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>First Name</label>
+                          </div>
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="text" id="lastName">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Last Name</label>
+                          </div>
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="text" id="email">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Email</label>
+                          </div>
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="text" id="number">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Phone Number</label>
+                          </div>
+  
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="text" id="nic">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>NIC</label>
+                          </div>
+  
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="text" id="from_where">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>From where He / She lost</label>
+                          </div>
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="text" id="location">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Address</label>
+                          </div>
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="Number" id="age">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Age</label>
+                          </div>
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="text" id="height">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Height</label>
+                          </div>
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="text" id="color">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Color</label>
+                          </div>
+                          <div class="control-material is-secondary">
+                            <input class="material-input" type="text" id="identity">
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Idea Identity</label>
+                          </div>
+                          <div class="control-material is-secondary">
+                            <!-- <input class="material-input" type="Number" > -->
+                            <textarea id="info"></textarea>
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Other information</label>
+                          </div>
+                          <div class="file-input-wrapper mt-20">
+                            <div class="control field-input-wrapper">
+                              <div class="field-input">
+                                <input type="file" id="file">
+                                <span class="button btn-align secondary-btn raised">Attach Image</span>
+                                <span class="label" data-js-label="">No file selected</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p id="error"></p>
+  
+                          <div class="mt-20 has-text-right">
+  
+                            <button type="button" id="query"
+                              class="button btn-align button-cta no-lh secondary-btn raised is-bold">
+                              Submit
+                            </button>
+                            
+                          </div>
+                          <!-- </form> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+  
+  
+      
+  
+  
+      {{> footer-side-light}}
+  
+      
+  
+      <!-- Back To Top Button -->
+      <div id="backtotop"><a href="#"></a></div>
+  
+      <!-- /Chat widget -->
+      <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+      <script src="assets/js/app.js"></script>
+      <script src="assets/js/core.js"></script>
+    </body>
+  
+    </html>
+    <!-- Side navigation -->
+    <div class="side-navigation-menu">
+      <!-- Categories menu -->
+      <div class="category-menu-wrapper">
+        <!-- Menu -->
+        <ul class="categories">
+          <li class="square-logo"><img src="assets/img/logos/square-white.svg" alt=""></li>
+          <li class="category-link is-active" data-navigation-menu="demo-pages"><i class="sl sl-icon-layers"></i></li>
+          <li class="category-link" data-navigation-menu="onepagers"><i class="sl sl-icon-docs"></i></li>
+          <li class="category-link" data-navigation-menu="components"><i class="sl sl-icon-grid"></i></li>
+        </ul>
+        <!-- Menu -->
+  
+        <ul class="author">
+          <li>
+            <!-- Theme author -->
+            <a href="https://cssninja.io" target="_blank">
+              <img class="main-menu-author" src="assets/img/logos/cssninja.svg" alt="">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- /Categories menu -->
+  
+      <!-- Navigation menu -->
+      <div id="demo-pages" class="navigation-menu-wrapper animated preFadeInRight fadeInRight">
+        <!-- Navigation Header -->
+        <div class="navigation-menu-header">
+          <span>Demo pages</span>
+          <a class="ml-auto hamburger-btn navigation-close" href="javascript:void(0);">
+            <span class="menu-toggle">
+              <span class="icon-box-toggle">
+                <span class="rotate">
+                  <i class="icon-line-top"></i>
+                  <i class="icon-line-center"></i>
+                  <i class="icon-line-bottom"></i>
+                </span>
+              </span>
+            </span>
+          </a>
+        </div>
+        <!-- Navigation Body -->
+      </div>
+      <!-- Navigation menu -->
+      <div id="onepagers" class="navigation-menu-wrapper animated preFadeInRight fadeInRight is-hidden">
+        <!-- Navigation Header -->
+        <div class="navigation-menu-header">
+          <span>Sub Pages</span>
+          <a class="ml-auto hamburger-btn navigation-close" href="javascript:void(0);">
+            <span class="menu-toggle">
+              <span class="icon-box-toggle">
+                <span class="rotate">
+                  <i class="icon-line-top"></i>
+                  <i class="icon-line-center"></i>
+                  <i class="icon-line-bottom"></i>
+                </span>
+              </span>
+            </span>
+          </a>
+        </div>
+        <!-- Navigation body -->
+      </div>
+      <!-- Navigation menu -->
+      <div id="components" class="navigation-menu-wrapper animated preFadeInRight fadeInRight is-hidden">
+        <!-- Navigation Header -->
+        <div class="navigation-menu-header">
+          <span>Components</span>
+          <a class="ml-auto hamburger-btn navigation-close" href="javascript:void(0);">
+            <span class="menu-toggle">
+              <span class="icon-box-toggle">
+                <span class="rotate">
+                  <i class="icon-line-top"></i>
+                  <i class="icon-line-center"></i>
+                  <i class="icon-line-bottom"></i>
+                </span>
+              </span>
+            </span>
+          </a>
+        </div>
+        <!-- Navigation body -->
+  
+      </div>
+      <!-- /Navigation menu -->
+    </div>
+    <!-- /Side navigation -->
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+  
+  
+  
+  
+    <!-- <script src="../assets/js/find.js"></script> -->
+    <!-- <script src="assets/js/app.js"></script> -->
+    <script src="assets/js/core.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      // const query = document.getElementById("query")
+  
+      $("#query").on("click",function(){
+        querysubmit();
+      });
+  
+      function querysubmit(){
+        const error = document.getElementById("error");
+  
+        if(!localStorage.getItem("token")){
+  
+    error.setAttribute("class", "error")
+                  error.innerHTML = "Login first"
+                  return ;
+        }
+        const file = document.getElementById("file").files;
+        const payload = new FormData();
+        for (var i = 0; i < file.length; i++) {  
+          payload.append("file", file[i]);
+        }
+  
+            //https://ribbon-uncovered-rayon.glitch.me
+    
+            const res = fetch(`https://ribbon-uncovered-rayon.glitch.me/api/query/image`, {
+              method: 'POST',
+              hwaders: { "Content-type": "form-data" },
+              body: payload
+            }).then(res => res.json()).then(async (data) => {
+        
+              const firstName = document.getElementById("firstName");
+              const lastName = document.getElementById("lastName");
+              const email = document.getElementById("email");
+              const number = document.getElementById("number");
+              const location = document.getElementById("location");
+              const age = document.getElementById("age");
+              const color = document.getElementById("color");
+              const height = document.getElementById("height");
+              const identity = document.getElementById("identity");
+              const info = document.getElementById("info");
+              const from_where = document.getElementById("from_where");
+              const nic = document.getElementById("nic");
+        
+              const datapayload = {
+                images: data.data,
+                first_name: firstName?.value,
+                last_name: lastName?.value,
+                email: email?.value,
+                contact: number?.value,
+                address: location?.value,
+                color: color?.value,
+                age: age?.value,
+                height: height?.value,
+                info: info?.value,
+                ideal_identity: identity?.value,
+                from_where: from_where?.value,
+                nic: nic?.value,
+                user_id: localStorage.getItem("user")?._id
+              }
+              
+              const response = await fetch(`https://ribbon-uncovered-rayon.glitch.me/api/query`, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.S
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": `Bearer ${localStorage.getItem("token")}`
+                },
+                body: JSON.stringify(datapayload) // body data type must match "Content-Type" header
+              }).then(response =>response.json()).then(data => {
+                if (data.success) {
+                  error.setAttribute("class", "success");
+                  error.innerHTML = data.message;
+                  
+  
+                  if(firstName.value != ""){
+                    firstName.value = "";                  
+                  }
+                  
+                  if(lastName.value != ""){
+                    lastName.value = "";                  
+                  }
+        
+                  
+                  if(email.value != ""){
+                    email.value = "";                  
+                  }
+                  if(number.value != ""){
+                    number.value = "";                  
+                  }
+                  if(location.value != ""){
+                    location.value = "";                  
+                  }
+                  if(color.value != ""){
+                    color.value = "";                  
+                  }
+        
+                  
+                  
+                  if(age.value != ""){
+                    age.value = "";                  
+                  }
+        
+                  
+                  
+        
+                  if(height.value != ""){
+                    height.value = "";                  
+                  }
+        
+                  
+                  
+                  if(info.value != ""){
+                    info.value = "";                  
+                  }
+        
+                  
+                 
+                  if(identity.value != ""){
+                    identity.value = "";                  
+                  }
+        
+                  if(from_where.value != ""){
+                    from_where.value = "";                  
+                  }
+        
+                  
+                 
+                  if(nic.value != ""){
+                    nic.value = "";                  
+                  }
+        
+                  
+                  
+        
+        
+                } else {
+                  error.setAttribute("class", "error")
+                  error.innerHTML = data.message
+                }
+              })
+            })
+    
+      }
+    </script>
+  </body>
+  
+  </html>
+  
