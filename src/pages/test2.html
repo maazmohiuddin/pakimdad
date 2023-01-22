@@ -292,15 +292,15 @@
                   error.innerHTML = "Login first"
                   return ;
         }
-        const file = document.getElementById("file").files;
-        const payload = new FormData();
-        for (var i = 0; i < file.length; i++) {  
-          payload.append("file", file[i]);
-        }
-  
+        // for (var i = 0; i < file.length; i++) {  
+            // }
+            
             //https://ribbon-uncovered-rayon.glitch.me
+            const file = document.getElementById("file").files;
+            const payload = new FormData();
+            payload.append("file", file[0]);
     
-            const res = fetch(`https://ribbon-uncovered-rayon.glitch.me/api/query/image`, {
+            const res = fetch(`https://ribbon-uncovered-rayon.glitch.me/api/query/imageupload`, {
               method: 'POST',
               hwaders: { "Content-type": "form-data" },
               body: payload

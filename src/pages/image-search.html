@@ -40,7 +40,7 @@ title: Search
                                                                 <div
                                                                   class="uploader-controls has-text-right animated preFadeInUp fadeInUp"
                                                                 >
-                                                                  <input type="file" name="thumbnails" />
+                                                                  <input type="file" name="thumbnails" id="file" />
                                                                   <button
                                                                     type="submit"
                                                                     class="
@@ -52,6 +52,7 @@ title: Search
                                                                       is-bold
                                                                       secondary-btn
                                                                     "
+                                                                    onclick="querysubmit()"
                                                                   >
                                                                     Upload
                                                                   </button>
@@ -181,7 +182,31 @@ title: Search
         <div id="backtotop"><a href="#"></a></div>        
         <script src="assets/js/app.js"></script>
         <script src="assets/js/core.js"></script>
+        <script>
+
+function querysubmit(){
+        const error = document.getElementById("error");
+  
+        if(!localStorage.getItem("token")){
+  
+    error.setAttribute("class", "error")
+                  error.innerHTML = "Login first"
+                  return ;
+        }
+          const file = document.getElementById("file").files;
+            const payload = new FormData();
+            payload.append("file", file[0]);
+        
+            const res = fetch(`http://192.168.100.196:5000/api/query/getimage`, {
+              method: 'POST',
+              hwaders: { "Content-type": "form-data" },
+              body: payload
+            }).then(res => res.json()).then(async (data) => {
+            console.log(data)
+            })}
+        </script>
     </body>
 </html>
 
 {{> footer-side-light}}
+
