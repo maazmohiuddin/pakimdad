@@ -197,7 +197,7 @@ function querysubmit(){
             const payload = new FormData();
             payload.append("file", file[0]);
         
-            const res = fetch(`http://192.168.100.196:5000/api/query/getimage`, {
+            const res = fetch(`https://pakimdaad.herokuapp.com/api/query/getimage`, {
               method: 'POST',
               hwaders: { "Content-type": "form-data" },
               body: payload

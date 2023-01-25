@@ -247,16 +247,23 @@ title: Name Search
                 "authorization": `Bearer ${localStorage.getItem("token")}`
             }
         }).then(res => res.json()).then(data => {
-            console.log(data)
+            
+            const tableBody = document.getElementById("data")
+            const tableRow = document.getElementsByClassName("rowdata")
+            console.log(tableRow.length)
+            for ( var i = 0; i < tableRow.length-1; i++ ){
+                console.log(i)
+                tableRow[i].remove();
+}
+            // tableRow.remove()
+            // tableBody.remove()
             if (data.success) {
                 const error = document.getElementById("error")
                 error.setAttribute("class", "success")
                 error.innerHTML = data.message
-                const tableBody = document.getElementById("data")
                 console.log(tableBody)
                 for (var i = 0; i < data.data.length; i++) {
-
-                    markup = `<tr><td>
+                    markup = `<tr class="rowdata"><td>
                     ${data.data[i].first_name + " " + data.data[i].last_name}
                 </td>
                 <td>
@@ -279,8 +286,10 @@ ${data.data[i].age}
     </button>
 </td>
 </tr>`
-                    console.log(markup)
+                    
                     tableBody.insertAdjacentHTML("afterend", markup)
+                    
+
                 }
             } else {
                 const error = document.getElementById("error")

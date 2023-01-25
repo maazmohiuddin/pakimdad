@@ -1,2 +1,2 @@
-export const baseURL = "http://localhost:5000/api"
-export const imageURL = "http://localhost:5000"
+export const baseURL = "https://pakimdaad.herokuapp.com/api"
+export const imageURL = "https://pakimdaad.herokuapp.com"
