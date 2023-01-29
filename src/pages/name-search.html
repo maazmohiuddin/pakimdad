@@ -2,136 +2,148 @@
 layout: default
 title: Name Search
 ---
-{{> navbar-fade-account}}
 
+{{> navbar-fade-account}}
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required Meta Tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-    <title> Pak-Imdaad </title>
+    <title>Pak-Imdaad</title>
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 
     <!--Core CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="assets/css/core.css">
-</head>
-<style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" href="assets/css/core.css" />
+  </head>
+  <style>
     .profilepic {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        border: 2px solid black;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: 2px solid black;
     }
+  </style>
 
-    .error {
-        color: red;
-
-    }
-
-    .success {
-        color: green;
-    }
-</style>
-
-<body>
+  <body>
     <div class="pageloader"></div>
     <div class="infraloader is-active"></div>
     <!DOCTYPE html>
     <html lang="en">
-
-    <body class="is-theme-core">
-        <div class=<div class="infraloader is-active"></div>
+      <body class="is-theme-core">
+        <div class="<div" class="infraloader is-active"></div>
 
         <!-- Hero -->
-        <div class="hero is-relative is-fullheight is-app-grey" data-page-theme="teal">
-            <!--Nav-->
-            <div class="hero-body">
-                <div class="container">
-                    <div class="columns has-text-centered">
-                        <!-- Caption -->
-                        <div class="column is-8 is-offset-2 is-hero-caption is-centered">
-                            <h1 class="title is-1">Search Missing Person</h1>
-                            <h2 class="subtitle pt-10" style="margin-bottom:33px !important ;">
-                                Search through out community contributed database
-                            </h2>
-                            <div class="buttons">
-                                <div class="grid-system is-medium">
-                                    <div class="column is-12">
-                                        <div class="flex-card simple-shadow">
-                                            <div class="card-body">
-                                                <div class="content">
-                                                    <h2 class="no-margin title is-3"
-                                                        style="margin-bottom:33px !important ;">Name Search</h2>
+        <div
+          class="hero is-relative is-fullheight is-app-grey"
+          data-page-theme="teal"
+        >
+          <!--Nav-->
+          <div class="hero-body">
+            <div class="container">
+              <div class="columns has-text-centered">
+                <!-- Caption -->
+                <div
+                  class="column is-8 is-offset-2 is-hero-caption is-centered"
+                >
+                  <h1 class="title is-1">Search Missing Person</h1>
+                  <h2
+                    class="subtitle pt-10"
+                    style="margin-bottom: 33px !important"
+                  >
+                    Search through out community contributed database
+                  </h2>
+                  <div class="buttons">
+                    <div class="grid-system is-medium">
+                      <div class="column is-12">
+                        <div class="flex-card simple-shadow">
+                          <div class="card-body">
+                            <div class="content">
+                              <h2
+                                class="no-margin title is-3"
+                                style="margin-bottom: 33px !important"
+                              >
+                                Name Search
+                              </h2>
 
-                                                    <div class="columns is-vcentered pb-10">
-                                                        <div class="column is-12">
-                                                            <div class="section-wrapper">
-                                                                <div
-                                                                    class="uploader-controls has-text-right animated preFadeInUp fadeInUp">
-                                                                    <div class="control-material is-primary has-icon">
-                                                                        <input class="material-input" type="text"
-                                                                            required id="searchname">
-                                                                        <i class="material-icons pb-10">search</i>
-                                                                        <span class="material-highlight"></span>
-                                                                        <span class="bar"></span>
-                                                                        <label>Name</label>
-                                                                    </div>
-                                                                    <button onClick={searchbyname()} type="button"
-                                                                        class="
-                                                                      button
-                                                                      btn-align
-                                                                      button-cta
-                                                                      raised
-                                                                      no-lh
-                                                                      is-bold
-                                                                      secondary-btn
-                                                                    ">
-                                                                        Search
-                                                                    </button>
-                                                                </div>
-                                                                <table class="table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            
-                                                                            <th>Name</th>
-                                                                            
-                                                                            <th>Age</th>
-                                                                           
-                                                                            <th>Image</th>
-                                                                            <th>Actions</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody id="data">
-                                                
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                        <div class="column"></div>
-                                                    </div>
-                                                </div>
-                                                <p id="error"></p>
-                                                <p class="body-color">Search via Image in our database contributed by
-                                                    our local social talent.</p>
-
-                                            </div>
-                                        </div>
+                              <div class="columns is-vcentered pb-10">
+                                <div class="column is-12">
+                                  <div class="section-wrapper">
+                                    <div
+                                      class="uploader-controls has-text-right animated preFadeInUp fadeInUp"
+                                    >
+                                      <div
+                                        class="control-material is-primary has-icon"
+                                      >
+                                        <input
+                                          class="material-input"
+                                          type="text"
+                                          required
+                                          id="searchname"
+                                        />
+                                        <i class="material-icons pb-10"
+                                          >search</i
+                                        >
+                                        <span class="material-highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Name</label>
+                                      </div>
+                                      <button
+                                        onClick="{searchbyname()}"
+                                        type="button"
+                                        class="button btn-align button-cta raised no-lh is-bold secondary-btn"
+                                      >
+                                        Search
+                                      </button>
                                     </div>
+                                    <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th>Name</th>
+
+                                          <th>Age</th>
+
+                                          <th>Image</th>
+                                          <th>Actions</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody id="data"></tbody>
+                                    </table>
+                                  </div>
                                 </div>
+                                <div class="column"></div>
+                              </div>
                             </div>
+                            <div id="errordiv" style="padding: 0% !important">
+                              <p
+                                id="error"
+                                style="padding: 10px !important"
+                              ></p>
+                            </div>
+                            <p class="body-color">
+                              Search via Image in our database contributed by
+                              our local social talent.
+                            </p>
+                          </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-        </div>
+          </div>
         </div>
         <!-- <div class="columns is-vcentered pt-30">
             <div class="column is-10 is-offset-1">
@@ -155,69 +167,69 @@ title: Name Search
         </div> -->
         <!-- Card counter -->
         <div id="numbers-2" class="section section-feature-grey is-medium">
-            <div class="container">
-                <div class="section-title-wrapper">
-                    <div class="bg-number">1</div>
-                    <h2 class="title section-title has-text-centered dark-text text-bold">
-                        Hover cards
-                    </h2>
-                </div>
-
-                <div class="content-wrapper">
-                    <!-- Counters -->
-                    <div class="columns is-vcentered has-text-centered">
-                        <div class="column is-3">
-                            <div class="card-counter">
-                                <div class="flex-card light-bordered hover-inset">
-                                    <div class="round-icon">
-                                        <i class="material-icons">face</i>
-                                    </div>
-                                    <div class="counter counter-number text-bold">528</div>
-                                    <div class="counter-text">Active users</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="column is-3">
-                            <div class="card-counter">
-                                <div class="flex-card light-bordered hover-inset">
-                                    <div class="round-icon">
-                                        <i class="material-icons">insert_drive_file</i>
-                                    </div>
-                                    <div class="counter counter-number text-bold">150000</div>
-                                    <div class="counter-text">Files shared</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="column is-3">
-                            <div class="card-counter">
-                                <div class="flex-card light-bordered hover-inset">
-                                    <div class="round-icon">
-                                        <i class="material-icons">cloud_download</i>
-                                    </div>
-                                    <div class="counter counter-number text-bold">8924</div>
-                                    <div class="counter-text">Product downloads</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="column is-3">
-                            <div class="card-counter">
-                                <div class="flex-card light-bordered hover-inset">
-                                    <div class="round-icon">
-                                        <i class="material-icons">attach_file</i>
-                                    </div>
-                                    <div class="counter counter-number text-bold">993</div>
-                                    <div class="counter-text">Attachments uploaded</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="container">
+            <div class="section-title-wrapper">
+              <div class="bg-number">1</div>
+              <h2
+                class="title section-title has-text-centered dark-text text-bold"
+              >
+                Hover cards
+              </h2>
             </div>
+
+            <div class="content-wrapper">
+              <!-- Counters -->
+              <div class="columns is-vcentered has-text-centered">
+                <div class="column is-3">
+                  <div class="card-counter">
+                    <div class="flex-card light-bordered hover-inset">
+                      <div class="round-icon">
+                        <i class="material-icons">face</i>
+                      </div>
+                      <div class="counter counter-number text-bold">528</div>
+                      <div class="counter-text">Active users</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-3">
+                  <div class="card-counter">
+                    <div class="flex-card light-bordered hover-inset">
+                      <div class="round-icon">
+                        <i class="material-icons">insert_drive_file</i>
+                      </div>
+                      <div class="counter counter-number text-bold">150000</div>
+                      <div class="counter-text">Files shared</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-3">
+                  <div class="card-counter">
+                    <div class="flex-card light-bordered hover-inset">
+                      <div class="round-icon">
+                        <i class="material-icons">cloud_download</i>
+                      </div>
+                      <div class="counter counter-number text-bold">8924</div>
+                      <div class="counter-text">Product downloads</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-3">
+                  <div class="card-counter">
+                    <div class="flex-card light-bordered hover-inset">
+                      <div class="round-icon">
+                        <i class="material-icons">attach_file</i>
+                      </div>
+                      <div class="counter counter-number text-bold">993</div>
+                      <div class="counter-text">Attachments uploaded</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-
         {{> footer-side-light}}
-
 
         <!-- Back To Top Button -->
         <div id="backtotop"><a href="#"></a></div>
@@ -226,51 +238,50 @@ title: Name Search
         <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
         <script src="assets/js/app.js"></script>
         <script src="assets/js/core.js"></script>
-    </body>
-
+      </body>
     </html>
 
     <!-- Back To Top Button -->
     <div id="backtotop"><a href="#"></a></div>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/core.js"></script>
-</body>
-<script>
-
-
+  </body>
+  <script>
     function searchbyname() {
+      const name = document.getElementById("searchname").value;
+      const res = fetch(
+        `https://pakimdaad.herokuapp.com/api/query?first_name=${name}`,
+        {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          const tableBody = document.getElementById("data");
+          const errordiv = document.getElementById("errordiv");
 
-        const name = document.getElementById("searchname").value
-        const res = fetch(`https://pakimdaad.herokuapp.com/api/query?first_name=${name}`, {
-            method: "GET",
-            headers: {
-                "authorization": `Bearer ${localStorage.getItem("token")}`
-            }
-        }).then(res => res.json()).then(data => {
-            
-            const tableBody = document.getElementById("data")
-            const tableRow = document.getElementsByClassName("rowdata")
-            console.log(tableRow.length)
-            for ( var i = 0; i < tableRow.length-1; i++ ){
-                console.log(i)
-                tableRow[i].remove();
-}
-            // tableRow.remove()
-            // tableBody.remove()
-            if (data.success) {
-                const error = document.getElementById("error")
-                error.setAttribute("class", "success")
-                error.innerHTML = data.message
-                console.log(tableBody)
-                for (var i = 0; i < data.data.length; i++) {
-                    markup = `<tr class="rowdata"><td>
+          if (data.success) {
+            const error = document.getElementById("error");
+            error.setAttribute("class", "success");
+            errordiv.setAttribute("class", "successclass");
+            error.innerHTML = data.message;
+            console.log(tableBody);
+            console.log(data);
+
+            for (var i = 0; i < data.data.length; i++) {
+              markup = `<tr class="rowdata"><td>
                     ${data.data[i].first_name + " " + data.data[i].last_name}
                 </td>
                 <td>
 ${data.data[i].age}
 </td>
 <td>
-    <img src=https://pakimdaad.herokuapp.com/api/query/image/${data.data[i].images} class="profilepic">
+    <img src=https://pakimdaad.herokuapp.com/api/query/image/${
+      data.data[i].images
+    } class="profilepic">
 </td>
 <td>
     <button class="
@@ -285,23 +296,44 @@ ${data.data[i].age}
         View More
     </button>
 </td>
-</tr>`
-                    
-                    tableBody.insertAdjacentHTML("afterend", markup)
-                    
+</tr>`;
 
-                }
-            } else {
-                const error = document.getElementById("error")
-                error.setAttribute("class", "error")
-                error.innerHTML = data.message
-                console.log(data.message)
-                markup = ""
-                tableBody.insertAdjacentHTML("afterend", markup)
-
+              tableBody.insertAdjacentHTML("afterend", markup);
             }
-        })
+          } else {
+            const error = document.getElementById("error");
+            error.setAttribute("class", "error");
+            errordiv.setAttribute("class", "errorclass");
+            error.innerHTML = data.message;
+            console.log(data.message);
+            markup = "";
+            tableBody.insertAdjacentHTML("afterend", markup);
+          }
+        });
     }
-</script>
-
+  </script>
 </html>
+
+<style>
+  .successclass {
+    color: #00ff3c;
+    margin: 20px;
+    padding: 10px;
+    background-color: #afffc2;
+    border-radius: 10px;
+    border: 2px solid #7aff99;
+  }
+
+  .errorclass {
+    color: #ff4570;
+    margin: 20px;
+    padding: 10px;
+    background-color: #ffd8d8;
+    border-radius: 10px;
+    border: 2px solid #ff4570;
+
+    /* background-color: #afffc2;
+  border-radius: 10px;
+  border: 2px solid #7aff99; */
+  }
+</style>

@@ -5,7 +5,6 @@ title: Profile
 
 {{> navbar-fade-account}}
 
-
 <div class="profile-header">
   <div class="profile-header-inner">
     <div class="profile-avatar">
@@ -294,7 +293,9 @@ title: Profile
 
 {{> footer-side-light}}
 
-
 <script>
-    document.getElementById("username").innerHTML= JSON.parse(localStorage.getItem('user')).first_name + " " + JSON.parse(localStorage.getItem('user')).last_name;
-   </script>
+  document.getElementById("username").innerHTML =
+    JSON.parse(localStorage.getItem("user")).first_name +
+    " " +
+    JSON.parse(localStorage.getItem("user")).last_name;
+</script>
