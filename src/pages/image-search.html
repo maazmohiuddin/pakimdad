@@ -107,15 +107,16 @@ title: Search
     </div>
 
     <!-- Card modal triggrt -->
-    <button class="modal-trigger" data-modal="card-modal3">View NGO</button>
+    <button id="triggerbut" class="modal-trigger" data-modal="card-modal3">
+      View NGO
+    </button>
 
     <!-- Card modal -->
     <div id="card-modal3" class="modal modal-lg">
       <div class="modal-background"></div>
       <div class="modal-card modal-content z-index-101">
         <div class="modal-card-body" id="modal-data">
-          <label>Name</label>
-          <p id="fname"></p>
+          <div class="container" id="moddiv"></div>
         </div>
         <footer class="modal-card-foot">
           <button class="button raised primary-btn modal-dismiss">Close</button>
@@ -194,41 +195,6 @@ title: Search
     <script src="assets/js/core.js"></script>
   </body>
 </html>
-<!-- Side navigation -->
-<div class="side-navigation-menu">
-  <!-- Categories menu -->
-  <div class="category-menu-wrapper">
-    <!-- Menu -->
-    <ul class="categories">
-      <li class="square-logo">
-        <img src="assets/img/logos/square-white.svg" alt="" />
-      </li>
-      <li class="category-link is-active" data-navigation-menu="demo-pages">
-        <i class="sl sl-icon-layers"></i>
-      </li>
-      <li class="category-link" data-navigation-menu="onepagers">
-        <i class="sl sl-icon-docs"></i>
-      </li>
-      <li class="category-link" data-navigation-menu="components">
-        <i class="sl sl-icon-grid"></i>
-      </li>
-    </ul>
-    <!-- Menu -->
-
-    <ul class="author">
-      <li>
-        <!-- Theme author -->
-        <a href="https://cssninja.io" target="_blank">
-          <img
-            class="main-menu-author"
-            src="assets/img/logos/cssninja.svg"
-            alt=""
-          />
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
 
 <style>
   .successclass {
@@ -289,59 +255,40 @@ border: 2px solid #7aff99; */
           for (var i = 0; i < data.data.length; i++) {
             console.log(JSON.stringify(data.data[i]));
 
-            markup = `<tr class="rowdata"><td>
-                        ${
-                          data.data[i].first_name + " " + data.data[i].last_name
-                        }
-                    </td>
-                    <td>
-    ${data.data[i].age}
+            markup = `
+              <tr class="rowdata">
+    <td>
+      ${data.data[i].first_name + " " + data.data[i].last_name}
+    </td>
+    <td>${data.data[i].age}</td>
+    <td>
+      <img src="https://pakimdaad.herokuapp.com/api/query/image/${
+        data.data[i].images
+      }" class="profilepic">
     </td>
     <td>
-        <img src=https://pakimdaad.herokuapp.com/api/query/image/${
-          data.data[i].images
-        } class="profilepic">
-    </td>
-    <td>
-      <button class="
-      button
-      is-small
-      btn-align
-      accent-btn
-      raised
-      rounded
-      btn-outlined
-      modal-trigger"
+      <button class="modal-trigger" data-modal="card-modal">View NGO</button>
 
-      data-modal="card-modal3"
-      onclick="
-        datamap(
-         ${JSON.stringify(
-           data.data[i].first_name + " " + data.data[i].last_name
-         )}  
-        )
-      
-      "
-    ">
-            View More
-        </button>
-        <button class="modal-trigger" data-modal="card-modal3">View NGO</button>
+      <button class="button is-small btn-align accent-btn raised rounded btn-outlined" onclick='datamap({
+        "name": "${data.data[i].first_name} ${data.data[i].last_name}",
+        "age": "${data.data[i].age}",
+        "gender": "${data.data[i].gender}",
+        "lastloc": "${data.data[i].lastLocation}",
+        "datetime": "${data.data[i].dateTime}",
+        "plantiff": "${data.data[i].plaintiff}",
+        "email": "${data.data[i].email}",
+        "contact": "${data.data[i].contact}",
+        "altcontact": "${data.data[i].altContact}",
+        "address": "${data.data[i].address}",
+        "info": "${data.data[i].info}",
+        "images": "${data.data[i].images}"
+      })'>
+        View More
+      </button>
     </td>
-    </tr>
-    <div id="card-modal3" class="modal modal-lg">
-      <div class="modal-background"></div>
-      <div class="modal-card modal-content z-index-101">
-        <div class="modal-card-body" id="modal-data">
-          <label>Name</label>
-          <p id="fname"></p>
-        </div>
-        <footer class="modal-card-foot">
-          <button class="button raised primary-btn modal-dismiss">Close</button>
-        </footer>
-      </div>
-    </div>
+  </tr>
 
-    `;
+      `;
 
             tableBody.insertAdjacentHTML("afterend", markup);
           }
@@ -359,14 +306,31 @@ border: 2px solid #7aff99; */
   async function datamap(body) {
     await console.log(body);
     // body = JSON.parse(body);
-    // console.log(body);
+    console.log(body.name);
 
-    const datamodal = document.getElementById("modal-data");
+    const datamodal = document.getElementById("moddiv");
     const fname = document.getElementById("fname");
+    targetbutton = document.getElementById("triggerbut");
+    targetbutton.click();
 
-    fname = body;
+    let dataDiv = document.getElementById("moddiv");
+    dataDiv.setAttribute("class", "data-div");
 
-    tableBody.insertAdjacentHTML("afterend", datamodal);
+    dataDiv.innerHTML = `
+        <p><strong>Name:</strong> ${body.name}</p>
+        <p><strong>Age:</strong> ${body.age}</p>
+        <p><strong>Gender:</strong> ${body.gender}</p>
+        <p><strong>Last Location:</strong> ${body.lastloc}</p>
+        <p><strong>Date/Time:</strong> ${body.datetime}</p>
+        <p><strong>Plaintiff:</strong> ${body.plantiff}</p>
+        <p><strong>Email:</strong> ${body.email}</p>
+        <p><strong>Contact:</strong> ${body.contact}</p>
+        <p><strong>Alt. Contact:</strong> ${body.altcontact}</p>
+        <p><strong>Address:</strong> ${body.address}</p>
+        <p><strong>Info:</strong> ${body.info}</p>
+        <p><strong>Image:</strong> <img src="https://pakimdaad.herokuapp.com/api/query/image/${body.images}" class="modal-image"></p>
+    `;
+    datamodal.appendChild(dataDiv);
   }
 </script>
 
