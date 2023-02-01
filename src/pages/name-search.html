@@ -34,6 +34,32 @@ title: Name Search
       border-radius: 50%;
       border: 2px solid black;
     }
+    .content table td {
+      vertical-align: middle !important;
+    }
+
+    .circle {
+      line-height: 0; /* remove line-height */
+      display: inline-block; /* circle wraps image */
+      margin: 5px;
+      border: 1px solid rgba(200, 200, 200, 0.4);
+      border-radius: 50%; /* relative value */
+      /*box-shadow: 0px 0px 5px rgba(0,0,0,0.4);*/
+      transition: linear 0.25s;
+      object-fit: cover;
+      object-position: center;
+      height: 50px;
+      width: 50px;
+    }
+    .circle img {
+      border-radius: 50%; /* relative value for
+  		   adjustable image size */
+    }
+    .circle:hover {
+      transition: ease-out 0.2s;
+      border: 4px solid rgba(0, 0, 0, 0.2);
+      -webkit-transition: ease-out 0.2s;
+    }
   </style>
 
   <body>
@@ -229,6 +255,28 @@ title: Name Search
           </div>
         </div>
 
+        <button
+          hidden
+          id="triggerbut"
+          class="modal-trigger"
+          data-modal="card-modal3"
+        ></button>
+
+        <!-- Card modal -->
+        <div id="card-modal3" class="modal modal-lg">
+          <div class="modal-background"></div>
+          <div class="modal-card modal-content z-index-101">
+            <div class="modal-card-body" id="modal-data">
+              <div class="container" id="moddiv"></div>
+            </div>
+            <footer class="modal-card-foot">
+              <button class="button raised primary-btn modal-dismiss">
+                Close
+              </button>
+            </footer>
+          </div>
+        </div>
+
         {{> footer-side-light}}
 
         <!-- Back To Top Button -->
@@ -272,6 +320,7 @@ title: Name Search
             console.log(data);
 
             for (var i = 0; i < data.data.length; i++) {
+              console.log(JSON.stringify(data.data[i]));
               markup = `<tr class="rowdata"><td>
                     ${data.data[i].first_name + " " + data.data[i].last_name}
                 </td>
@@ -279,22 +328,27 @@ title: Name Search
 ${data.data[i].age}
 </td>
 <td>
-    <img src=https://pakimdaad.herokuapp.com/api/query/image/${
+    <img class="circle" src=https://pakimdaad.herokuapp.com/api/query/image/${
       data.data[i].images
     } class="profilepic">
 </td>
 <td>
-    <button class="
-  button
-  is-small
-  btn-align
-  accent-btn
-  raised
-  rounded
-  btn-outlined
-">
+  <button class="button is-small btn-align accent-btn raised rounded btn-outlined" onclick='datamap({
+        "name": "${data.data[i].first_name} ${data.data[i].last_name}",
+        "age": "${data.data[i].age}",
+        "gender": "${data.data[i].gender}",
+        "lastloc": "${data.data[i].lastLocation}",
+        "datetime": "${data.data[i].dateTime}",
+        "plantiff": "${data.data[i].plaintiff}",
+        "email": "${data.data[i].email}",
+        "contact": "${data.data[i].contact}",
+        "altcontact": "${data.data[i].altContact}",
+        "address": "${data.data[i].address}",
+        "info": "${data.data[i].info}",
+        "images": "${data.data[i].images}"
+      })'>
         View More
-    </button>
+      </button>
 </td>
 </tr>`;
 
@@ -310,6 +364,36 @@ ${data.data[i].age}
             tableBody.insertAdjacentHTML("afterend", markup);
           }
         });
+    }
+
+    async function datamap(body) {
+      await console.log(body);
+      // body = JSON.parse(body);
+      console.log(body.name);
+
+      const datamodal = document.getElementById("moddiv");
+      const fname = document.getElementById("fname");
+      targetbutton = document.getElementById("triggerbut");
+      targetbutton.click();
+
+      let dataDiv = document.getElementById("moddiv");
+      dataDiv.setAttribute("class", "data-div");
+
+      dataDiv.innerHTML = `
+        <p><strong>Name:</strong> ${body.name}</p>
+        <p><strong>Age:</strong> ${body.age}</p>
+        <p><strong>Gender:</strong> ${body.gender}</p>
+        <p><strong>Last Location:</strong> ${body.lastloc}</p>
+        <p><strong>Date/Time:</strong> ${body.datetime}</p>
+        <p><strong>Plaintiff:</strong> ${body.plantiff}</p>
+        <p><strong>Email:</strong> ${body.email}</p>
+        <p><strong>Contact:</strong> ${body.contact}</p>
+        <p><strong>Alt. Contact:</strong> ${body.altcontact}</p>
+        <p><strong>Address:</strong> ${body.address}</p>
+        <p><strong>Info:</strong> ${body.info}</p>
+        <p><strong>Image:</strong> <img src="https://pakimdaad.herokuapp.com/api/query/image/${body.images}" class="modal-image"></p>
+    `;
+      datamodal.appendChild(dataDiv);
     }
   </script>
 </html>

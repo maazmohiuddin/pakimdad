@@ -63,8 +63,7 @@ title: Home
           <div class="column is-8 is-offset-2 is-hero-caption is-centered">
             <h1 class="title is-1">Welcome to Pak Imdaad</h1>
             <h2 class="subtitle is-5 pt-10">
-              The first and only web service providing missing person services
-              free of cost
+              Find and rehabilitate the missing drug addicts using ML
             </h2>
 
             <div class="buttons">
@@ -394,25 +393,6 @@ title: Home
       <div class="faq-wrapper">
         <div class="columns">
           <div class="column is-5 is-offset-1">
-            <!--Faq Block-->
-            <!-- <div class="faq-block">
-                                    <div class="block-header">
-                                        <div class="header-icon">
-                                            <i class="fa fa-plus"></i>
-                                        </div>
-                                        <h3>How can I properly setup an account?</h3>
-                                    </div>
-                                    <div class="block-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Invidiosum nomen est, infame, suspectum. Utilitatis causa
-                                            amicitia est quaesita. Non laboro, inquit, de nomine. Duo Reges:
-                                            constructio interrete. Aliter homines, aliter philosophos loqui
-                                            putas oportere?
-                                        </p>
-                                    </div>
-                                </div> -->
-            <!--Faq Block-->
             <div class="faq-block">
               <div class="block-header">
                 <div class="header-icon">
@@ -561,131 +541,10 @@ title: Home
         </div>
       </div>
     </div>
-    <div class="has-text-centered is-title-reveal pt-40 pb-40">
-      <a
-        href="signup.html"
-        class="button button-cta btn-align raised primary-btn"
-      >
-        Start your Free trial
-      </a>
-    </div>
   </section>
+
+  {{> chat-button}} {{> chat-widget}}
   <!-- /CTA -->
-
-  {{> footer-side-light}}
-
-  <!-- Side navigation -->
-  <div class="side-navigation-menu">
-    <!-- Categories menu -->
-    <div class="category-menu-wrapper">
-      <!-- Menu -->
-      <ul class="categories">
-        <li class="square-logo">
-          <img src="assets/img/logos/square-white.svg" alt="" />
-        </li>
-        <li class="category-link is-active" data-navigation-menu="demo-pages">
-          <i class="sl sl-icon-layers"></i>
-        </li>
-        <li class="category-link" data-navigation-menu="onepagers">
-          <i class="sl sl-icon-docs"></i>
-        </li>
-        <li class="category-link" data-navigation-menu="components">
-          <i class="sl sl-icon-grid"></i>
-        </li>
-      </ul>
-      <!-- Menu -->
-
-      <ul class="author">
-        <li>
-          <!-- Theme author -->
-          <a href="https://cssninja.io" target="_blank">
-            <img
-              class="main-menu-author"
-              src="assets/img/logos/cssninja.svg"
-              alt=""
-            />
-          </a>
-        </li>
-      </ul>
-    </div>
-    <!-- /Categories menu -->
-
-    <!-- Navigation menu -->
-    <div
-      id="demo-pages"
-      class="navigation-menu-wrapper animated preFadeInRight fadeInRight"
-    >
-      <!-- Navigation Header -->
-      <div class="navigation-menu-header">
-        <span>Demo pages</span>
-        <a
-          class="ml-auto hamburger-btn navigation-close"
-          href="javascript:void(0);"
-        >
-          <span class="menu-toggle">
-            <span class="icon-box-toggle">
-              <span class="rotate">
-                <i class="icon-line-top"></i>
-                <i class="icon-line-center"></i>
-                <i class="icon-line-bottom"></i>
-              </span>
-            </span>
-          </span>
-        </a>
-      </div>
-
-      <div id="backtotop"><a href="#"></a></div>
-
-      <!-- /Chat widget -->
-      <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-      <script src="assets/js/app.js"></script>
-      <script src="assets/js/core.js"></script>
-
-      <!-- Side navigation -->
-      <div class="side-navigation-menu">
-        <!-- Categories menu -->
-        <div class="category-menu-wrapper">
-          <!-- Menu -->
-          <ul class="categories">
-            <li class="square-logo">
-              <img src="assets/img/logos/square-white.svg" alt="" />
-            </li>
-            <li
-              class="category-link is-active"
-              data-navigation-menu="demo-pages"
-            >
-              <i class="sl sl-icon-layers"></i>
-            </li>
-            <li class="category-link" data-navigation-menu="onepagers">
-              <i class="sl sl-icon-docs"></i>
-            </li>
-            <li class="category-link" data-navigation-menu="components">
-              <i class="sl sl-icon-grid"></i>
-            </li>
-          </ul>
-          <!-- Menu -->
-
-          <ul class="author">
-            <li>
-              <!-- Theme author -->
-              <a href="https://cssninja.io" target="_blank">
-                <img
-                  class="main-menu-author"
-                  src="assets/img/logos/cssninja.svg"
-                  alt=""
-                />
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- /Categories menu -->
-      </div>
-      <!-- /Side navigation -->
-      <!-- Back To Top Button -->
-
-      <div id="backtotop"><a href="#"></a></div>
-      <script src="assets/js/app.js"></script>
-      <script src="assets/js/core.js"></script>
-    </div>
-  </div>
 </body>
+
+{{> footer-side-light}}

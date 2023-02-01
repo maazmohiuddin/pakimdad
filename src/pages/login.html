@@ -2,9 +2,30 @@
 layout: default
 title: Login
 ---
+
 <style>
-  .error{
-    color: red;
+  .successclass {
+    text-align: center;
+    color: #00ff3c;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
+    background-color: #afffc2;
+    border-radius: 10px;
+    border: 2px solid #7aff99;
+  }
+
+  .errorclass {
+    text-align: center;
+    color: #ff4570;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 0px 10px 0px;
+    background-color: #ffd8d8;
+    border-radius: 10px;
+    border: 2px solid #ff4570;
+
+    /* background-color: #afffc2;
+border-radius: 10px;
+border: 2px solid #7aff99; */
   }
 </style>
 <!-- Wrapper -->
@@ -14,27 +35,42 @@ title: Login
     <div class="hero is-fullheight">
       <div class="hero-heading">
         <div class="auth-logo">
-          <a href="/"><img class="top-logo switcher-logo" src="assets/img/logos/pakimdad-logo.png" alt="" /></a>
+          <a href="/"
+            ><img
+              class="top-logo switcher-logo"
+              src="assets/img/logos/pakimdad-logo.png"
+              alt=""
+          /></a>
         </div>
       </div>
       <div class="hero-body">
         <div class="container">
           <div class="columns">
             <div class="column"></div>
-            <div class="column is-5">
+            <div class="column is-6">
               <div class="auth-content">
-                <h2>Welcome Back.</h2>
-                <p>Please sign in to your account</p>
-                <a href="/signup.html">I do not have an account yet </a>
+                <h2 id="heading">Welcome Back.</h2>
+                <p id="para">Please sign in to your account</p>
+                <a id="noaccount" href="/signup.html"
+                  >I do not have an account yet
+                </a>
               </div>
 
               <!-- Login Form -->
-              <form>
-                <div id="signin-form" class="login-form animated preFadeInLeft fadeInLeft">
+              <form id="form1">
+                <div
+                  id="signin-form"
+                  class="login-form animated preFadeInLeft fadeInLeft"
+                >
                   <!-- Input -->
                   <div class="field pb-10">
                     <div class="control has-icons-right">
-                      <input class="input is-medium has-shadow" type="email" placeholder="Email" id="username" />
+                      <input
+                        class="input is-medium has-shadow"
+                        type="email"
+                        placeholder="Email"
+                        id="username"
+                      />
                       <span class="icon is-medium is-right">
                         <i class="sl sl-icon-user"></i>
                       </span>
@@ -43,29 +79,29 @@ title: Login
                   <!-- Input -->
                   <div class="field pb-10">
                     <div class="control has-icons-right">
-                      <input class="input is-medium has-shadow" type="password" placeholder="Password" id='password' />
+                      <input
+                        class="input is-medium has-shadow"
+                        type="password"
+                        placeholder="Password"
+                        id="password"
+                      />
                       <span class="icon is-medium is-right">
                         <i class="sl sl-icon-lock"></i>
                       </span>
                     </div>
                   </div>
-                  
-                  <p id="error"></p>
+
+                  <div id="errordiv">
+                    <p id="error"></p>
+                  </div>
                   <!-- Submit -->
                   <p class="control login">
-                    <button 
-                    type="button"
-                    class="
-                        button button-cta
-                        primary-btn
-                        btn-align-lg
-                        is-bold is-fullwidth
-                        rounded
-                        raised
-                        no-lh
-                      " 
+                    <button
+                      type="button"
+                      class="button button-cta primary-btn btn-align-lg is-bold is-fullwidth rounded raised no-lh"
                       id="login"
-                      onClick={userlogin()}>
+                      onClick="{userlogin()}"
+                    >
                       Log in
                     </button>
                   </p>
@@ -74,11 +110,18 @@ title: Login
 
               <!-- Reset Form -->
               <form>
-                <div id="recover-form" class="login-form animated preFadeInLeft fadeInLeft is-hidden">
+                <div
+                  id="recover-form"
+                  class="login-form animated preFadeInLeft fadeInLeft is-hidden"
+                >
                   <!-- Input -->
                   <div class="field pb-10">
                     <div class="control has-icons-right">
-                      <input class="input is-medium has-shadow" type="text" placeholder="Email address" />
+                      <input
+                        class="input is-medium has-shadow"
+                        type="text"
+                        placeholder="Email address"
+                      />
                       <span class="icon is-medium is-right">
                         <i class="sl sl-icon-envelope-open"></i>
                       </span>
@@ -86,15 +129,9 @@ title: Login
                   </div>
                   <!-- Submit -->
                   <p class="control login">
-                    <button class="
-                        button button-cta
-                        primary-btn
-                        btn-align-lg
-                        is-bold is-fullwidth
-                        rounded
-                        raised
-                        no-lh
-                      ">
+                    <button
+                      class="button button-cta primary-btn btn-align-lg is-bold is-fullwidth rounded raised no-lh"
+                    >
                       Reset password
                     </button>
                   </p>
@@ -102,28 +139,19 @@ title: Login
               </form>
 
               <!-- Toggles -->
-              <div id="recover" class="
-                  pt-10
-                  pb-10
-                  forgot-password
-                  animated
-                  preFadeInLeft
-                  fadeInLeft
-                ">
-                <p class="has-text-centered">
+              <div
+                id="recover"
+                class="pt-10 pb-10 forgot-password animated preFadeInLeft fadeInLeft"
+              >
+                <p class="has-text-centered" id="forgotpass">
                   <a href="#">Forgot password ?</a>
                 </p>
               </div>
 
-              <div id="back-to-login" class="
-                  pt-10
-                  pb-10
-                  forgot-password
-                  animated
-                  preFadeInLeft
-                  fadeInLeft
-                  is-hidden
-                ">
+              <div
+                id="back-to-login"
+                class="pt-10 pb-10 forgot-password animated preFadeInLeft fadeInLeft is-hidden"
+              >
                 <p class="has-text-centered">
                   <a href="#">Back to Sign in</a>
                 </p>
@@ -143,57 +171,82 @@ title: Login
         <div class="column">
           <h2 class="title is-2 light-text">Start Contributing Now</h2>
           <h3 class="subtitle is-5 light-text">
-            Participate in the effort to locate the drug addicts lost around the nation. You never know if 5 minutes of your time might help save someone's life.
-      </h3>
+            Participate in the effort to locate the drug addicts lost around the
+            nation. You never know if 5 minutes of your time might help save
+            someone's life.
+          </h3>
           <div class="mt-30 has-text-centered">
-            <a href="index.html" class="button button-cta btn-outlined is-bold light-btn rounded">Get started
-              Free</a>
+            <a
+              href="index.html"
+              class="button button-cta btn-outlined is-bold light-btn rounded"
+              >Get started Free</a
+            >
           </div>
         </div>
       </div>
-      <img class="login-city" src="assets/img/graphics/compositions/city.svg" alt="" />
+      <img
+        class="login-city"
+        src="assets/img/graphics/compositions/city.svg"
+        alt=""
+      />
     </div>
   </div>
 </div>
 
-
-
 <script>
-
-document.addEventListener("keydown", function(event) {
-  if (event.keyCode === 13) {
-    document.getElementById("login").click();
-  }
-});
-
+  document.addEventListener("keydown", function (event) {
+    if (event.keyCode === 13) {
+      document.getElementById("login").click();
+    }
+  });
 
   async function userlogin() {
-    const username = document.getElementById("username").value
-    const password = document.getElementById("password").value
-    const response = await fetch(`https://pakimdaad.herokuapp.com/api/auth/login`, {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify({
-        "email": username,
-        "password": password
-      }) // body data type must match "Content-Type" header
-    }).then(res => res.json()).then(data => {
-      if (data.success) {
-        localStorage.setItem("user", JSON.stringify(data.data))
-        localStorage.setItem("token", data.token)
-        localStorage.setItem("isLogin", true)
-        window.location.href="/"        
-      }else{
-        const error = document.getElementById("error")
-error.setAttribute("class","error")
-        error.innerHTML= data.message
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const response = await fetch(
+      `https://pakimdaad.herokuapp.com/api/auth/login`,
+      {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify({
+          email: username,
+          password: password,
+        }), // body data type must match "Content-Type" header
       }
-    });
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          localStorage.setItem("user", JSON.stringify(data.data));
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("isLogin", true);
+          error.setAttribute("class", "error");
+          error.innerHTML = data.message;
+          errordiv.setAttribute("class", "successclass");
+          window.location.href = "/";
+        } else {
+          const error = document.getElementById("error");
+          error.setAttribute("class", "error");
+          error.innerHTML = data.message;
+          errordiv.setAttribute("class", "errorclass");
+        }
+      });
   }
 
-
-
+  if (JSON.parse(localStorage.getItem("isLogin")) == true) {
+    const heading = document.getElementById("heading");
+    const para = document.getElementById("para");
+    document.getElementById("form1").style.display = "none";
+    document.getElementById("forgotpass").style.display = "none";
+    document.getElementById("noaccount").innerHTML = "Back to Home";
+    document.getElementById("noaccount").href = "/";
+    heading.innerHTML = "You are already Signed in";
+    heading.style.fontSize = "1.8em";
+    para.style.fontSize = "1em";
+    para.innerHTML =
+      "<br>Please continue from home or logout to create new account";
+  }
 </script>

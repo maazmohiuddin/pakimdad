@@ -5,6 +5,33 @@ title: Find
 
 {{> navbar-fade-account}}
 
+<style>
+  .circle {
+    line-height: 0; /* remove line-height */
+    display: inline-block; /* circle wraps image */
+    margin: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 50%; /* relative value */
+    /*box-shadow: 0px 0px 5px rgba(0,0,0,0.4);*/
+    transition: linear 0.25s;
+    object-fit: cover;
+    object-position: center;
+    height: 100px;
+    width: 100px !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+  .circle img {
+    border-radius: 50%; /* relative value for
+  		   adjustable image size */
+  }
+  .circle:hover {
+    transition: ease-out 0.2s;
+    border: 4px solid rgba(0, 0, 0, 0.2);
+    -webkit-transition: ease-out 0.2s;
+  }
+</style>
+
 <div class="hero-body">
   <div class="container">
     <div class="columns has-text-centered">
@@ -395,12 +422,8 @@ title: Find
                       </h1>
                     </li>
                     <!-- <img id=image_list"> -->
-                    <div class="rounded-team-member pt-20 pb-20">
-                      <div class="avatar-wrap">
-                        <div class="profile-avatar">
-                          <div class="display"></div>
-                        </div>
-                      </div>
+                    <div class="rounded-team-member pt-20">
+                      <div class="display"></div>
                     </div>
 
                     <li>
@@ -726,7 +749,7 @@ border: 2px solid #7aff99; */
     let reader = new FileReader();
     reader.readAsDataURL(input.files[0]);
     reader.addEventListener("load", () => {
-      display.innerHTML = `<img class="avatar" style="width:100px;" src=${reader.result} alt=''/>`;
+      display.innerHTML = `<img class="circle" style="width:100px;" src=${reader.result} alt=''/>`;
     });
   });
 </script>
