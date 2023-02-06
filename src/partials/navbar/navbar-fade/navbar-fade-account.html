@@ -9,13 +9,10 @@
           class="switcher-logo"
           src="assets/img/logos/pakimdad-logo.png"
           alt=""
-        />       
+        />
       </a>
-      <div style="margin-left:auto;">
-        {{> account-dropdown-mobile}}
-      </div>
+      <div style="margin-left: auto">{{> account-dropdown-mobile}}</div>
     </div>
-
 
     <!-- Navbar menu -->
     <div class="navbar-menu navbar-start">
@@ -35,34 +32,22 @@
       <div id="nav-avatar" class="navbar-end">
         <!-- Account button -->
         {{> account-dropdown}}
-
       </div>
-    
+
       <div id="nav-login" class="navbar-end">
         <!-- Signup button -->
-        
-        <a class="navbar-item is-slide" href="login.html">
-          Login
-        </a>
-        <a class="navbar-item is-slide" href="signup.html">
-        Signup
-        </a>
 
+        <a class="navbar-item is-slide" href="login.html"> Login </a>
+        <a class="navbar-item is-slide" href="signup.html"> Signup </a>
       </div>
     </div>
   </div>
 </nav>
 
 <script>
-  
-if (JSON.parse(localStorage.getItem('isLogin'))==true)
-{
-  document.getElementById("nav-login").style.display = "none";
-}
-else
-{
-  document.getElementById("nav-avatar").style.display = "none";
-}
-
-  document.getElementById("un").innerHTML= JSON.parse(localStorage.getItem('user')).first_name + " " + JSON.parse(localStorage.getItem('user')).last_name;
-</script>  
+  if (JSON.parse(localStorage.getItem("isLogin")) == true) {
+    document.getElementById("nav-login").style.display = "none";
+  } else {
+    document.getElementById("nav-avatar").style.display = "none";
+  }
+</script>

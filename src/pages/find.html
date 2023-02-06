@@ -32,7 +32,7 @@ title: Find
   }
 </style>
 
-<div class="hero-body">
+<div class="hero-body" onload="console.clear()">
   <div class="container">
     <div class="columns has-text-centered">
       <!-- Caption -->
@@ -503,7 +503,15 @@ title: Find
                 </div>
               </div>
 
-              <p class="pt-10 pb-10 is-muted">
+              <img
+                class="is-centered is-vcentered"
+                src="/assets/img/loader1.gif"
+                style="width: 10%; display: none"
+                loop="infinite"
+                id="loader"
+              />
+
+              <p class="pt-10 pb-10 is-muted" id="status">
                 Press Submit if all the information is validated
               </p>
 
@@ -575,6 +583,7 @@ border: 2px solid #7aff99; */
 <script>
   // const query = document.getElementById("query")
 
+  const loader = document.getElementById("loader");
   let selectedValue;
   let radioButtons = document.querySelectorAll(
     "input[type=radio][name=gender]"
@@ -593,11 +602,13 @@ border: 2px solid #7aff99; */
   function querysubmit() {
     const error = document.getElementById("error");
     const errordiv = document.getElementById("errordiv");
+    loader.style.display = "";
 
     if (!localStorage.getItem("token")) {
       error.setAttribute("class", "error");
       errordiv.setAttribute("class", "errorclass");
       error.innerHTML = "Login first";
+      loader.style.display = "none";
       return;
     }
 
@@ -666,6 +677,7 @@ border: 2px solid #7aff99; */
               error.setAttribute("class", "success");
               errordiv.setAttribute("class", "successclass");
               error.innerHTML = data.message;
+              loader.style.display = "none";
 
               if (firstName.value != "") {
                 firstName.value = "";
@@ -715,6 +727,7 @@ border: 2px solid #7aff99; */
               error.setAttribute("class", "error");
               errordiv.setAttribute("class", "errorclass");
               error.innerHTML = data.message;
+              loader.style.display = "none";
             }
           });
       });

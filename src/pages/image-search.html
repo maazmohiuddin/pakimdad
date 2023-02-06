@@ -107,6 +107,17 @@ title: Search
                                   </thead>
                                   <tbody id="data"></tbody>
                                 </table>
+                                <img
+                                  class="is-centered is-vcentered"
+                                  src="/assets/img/loader1.gif"
+                                  style="
+                                    width: 25%;
+                                    display: none;
+                                    margin-top: 50px;
+                                  "
+                                  loop="infinite"
+                                  id="loader"
+                                />
                               </div>
                             </div>
                           </div>
@@ -253,11 +264,15 @@ border: 2px solid #7aff99; */
   function querysubmit() {
     const errordiv = document.getElementById("errordiv");
     const error = document.getElementById("error");
+    const loader = document.getElementById("loader");
+    loader.style.display = "";
+    const tableBody = document.getElementById("data");
 
     if (!localStorage.getItem("token")) {
       error.setAttribute("class", "error");
       errordiv.setAttribute("class", "errorclass");
       error.innerHTML = "Login first";
+      loader.style.display = "none";
       return;
     }
     const file = document.getElementById("file").files;
@@ -271,13 +286,13 @@ border: 2px solid #7aff99; */
     })
       .then((res) => res.json())
       .then(async (data) => {
-        const tableBody = document.getElementById("data");
-
         if (data.success) {
           const error = document.getElementById("error");
           error.setAttribute("class", "success");
           errordiv.setAttribute("class", "successclass");
+          loader.style.display = "none";
           error.innerHTML = data.message;
+          tableBody.innerHTML = "";
           for (var i = 0; i < data.data.length; i++) {
             console.log(JSON.stringify(data.data[i]));
 
@@ -322,6 +337,7 @@ border: 2px solid #7aff99; */
           error.setAttribute("class", "error");
           errordiv.setAttribute("class", "errorclass");
           error.innerHTML = data.message;
+          loader.style.display = "none";
           console.log(data.message);
           markup = "";
           tableBody.insertAdjacentHTML("afterend", markup);
