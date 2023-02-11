@@ -314,6 +314,7 @@ title: Name Search
         .then((data) => {
           const tableBody = document.getElementById("data");
           const errordiv = document.getElementById("errordiv");
+          
           tableBody.innerHTML = "";
 
           if (data.success) {
@@ -322,12 +323,12 @@ title: Name Search
             errordiv.setAttribute("class", "successclass");
             error.innerHTML = data.message;
             loader.style.display = "none";
-            console.log(tableBody);
-            console.log(data);
+            
             tableBody.innerHTML = "";
             for (var i = 0; i < data.data.length; i++) {
-              console.log(JSON.stringify(data.data[i]));
-              markup = `<tr class="rowdata"><td>
+              const tr = document.createElement('tr');
+              tr.className = 'rowddata';  
+              tr.innerHTML = `<td>
                         ${
                           data.data[i].first_name + " " + data.data[i].last_name
                         }
@@ -358,10 +359,12 @@ title: Name Search
             View More
           </button>
     </td>
-    </tr>`;
+    `;
 
-              tableBody.insertAdjacentHTML("afterend", markup);
-            }
+              
+    
+    tableBody.appendChild(tr);
+  }
           } else {
             const error = document.getElementById("error");
             error.setAttribute("class", "error");
