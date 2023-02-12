@@ -360,6 +360,39 @@ border: 2px solid #7aff99; */
     `;
     datamodal.appendChild(dataDiv);
   }
+  
+  async function makeconversation(){
+    const receiverId= localStorage.getItem("receiverId")
+    
+    
+    
+    const res = fetch(
+      `https://pakimdaad.herokuapp.com/api/conversation`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body:JSON.stringify({
+          receiverId:receiverId
+        })
+      }
+      
+    )
+      .then((res) => res.json())
+      .then((data) => {
+      if(data.success){
+        window.location.replace("http://localhost:3000/message.html")
+
+    
+      }
+      })
+    
+      }
+      async function removerconversation(){
+        localStorage.setItem("receiverId",body.user_id)
+      }
 </script>
 
 {{> footer-side-light}}

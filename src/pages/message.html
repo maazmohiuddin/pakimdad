@@ -48,6 +48,11 @@ title: Name Search
         display: block;
     }
 
+    a
+    {
+        text-decoration: none !important;
+    }
+
     body {
         line-height: 1.5;
     }
@@ -90,6 +95,7 @@ title: Name Search
         height: 90vh;
         overflow: hidden;
         min-height: calc(100% - 1rem);
+        border-radius: 20px;
     }
 
     .chatlist {
@@ -221,7 +227,18 @@ title: Name Search
         text-decoration: none;
     }
 
+    .chat-names {
+        padding: 10px;
+        margin: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 20px;
+        margin-bottom: 15px;
+        position: relative;
+        text-decoration: none;
+    }
+
     .chat-list .active {
+        
         display: block;
         content: "";
         clear: both;
@@ -236,7 +253,7 @@ title: Name Search
     }
 
     .msg-head h3 {
-        color: #222;
+        color: white;
         font-size: 18px;
         font-weight: 600;
         line-height: 1.5;
@@ -253,6 +270,8 @@ title: Name Search
     }
 
     .msg-head {
+       
+        background-color:#8c8cf9  ;
         padding: 15px;
         border-bottom: 1px solid #ccc;
     }
@@ -355,7 +374,7 @@ title: Name Search
         height: 0;
         border-style: solid;
         border-width: 0 12px 15px 12px;
-        border-color: transparent transparent #4b7bec transparent;
+        border-color: transparent transparent #8c8cf9 transparent;
         -webkit-transform: rotate(37deg);
         -ms-transform: rotate(37deg);
         transform: rotate(37deg);
@@ -367,7 +386,7 @@ title: Name Search
         line-height: 1.5;
         font-weight: 400;
         padding: 15px;
-        background: #4b7bec;
+        background: #8c8cf9;
         display: inline-block;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
@@ -377,7 +396,7 @@ title: Name Search
 
     .msg-body ul li.repaly p b {
         display: block;
-        color: #061061;
+        color: #8c8cf9;
         font-size: 14px;
         line-height: 1.5;
         font-weight: 500;
@@ -634,6 +653,7 @@ title: Name Search
         .send-box .form-control {
             width: 70%;
         }
+        
 
         .chat-list h3 {
             font-size: 14px;
@@ -672,17 +692,17 @@ title: Name Search
 
         <!-- Hero -->
         <!--Nav-->
-        <section class="message-area">
+        <section class="section" style="background-color: #f1f1f1;">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="chat-area">
+                <div class="columns">
+                    <div class="column is-12">
+                        <div class="chat-area flex-card light-bordered light-raised">
                             <!-- chatlist -->
                             <div class="chatlist">
                                 <div class="modal-dialog-scrollable">
                                     <div class="modal-content">
 
-                                        <!-- <div class="chat-header">
+                                        <div class="chat-header">
                             <div class="msg-search">
                               <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search" aria-label="search">
                               <a class="add" href="#"><img class="img-fluid" src="https://mehedihtml.com/chatbox/assets/img/add.svg" alt="add"></a>
@@ -696,7 +716,7 @@ title: Name Search
                                 <button class="nav-link" id="Closed-tab" data-bs-toggle="tab" data-bs-target="#Closed" type="button" role="tab" aria-controls="Closed" aria-selected="false">Closed</button>
                               </li>
                             </ul>
-                          </div> -->
+                          </div>
 
                                         <div class="modal-body">
                                             <!-- chat-list -->
@@ -779,10 +799,10 @@ title: Name Search
 
                                         <div class="send-box">
                                             <form action="">
-                                                <input type="text" class="form-control" aria-label="message…"
+                                                <input style="padding: 10px; border-radius: 20px;" type="text" class="form-control" aria-label="message…"
                                                     placeholder="Write message…" id="messagetext">
 
-                                                <button type="button" onclick="sendmessage()"><i class="fa fa-paper-plane"
+                                                <button class="button button-cta btn-outlined is-bold accent-btn rounded" style="padding: 20px; border-radius: 20px !important;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" type="button" onclick="sendmessage()"><i class="fa fa-paper-plane"
                                                         aria-hidden="true"></i> Send</button>
                                             </form>
 
@@ -957,34 +977,56 @@ title: Name Search
 <script>
     getconversation()
     function getconversation() {
-        <!-- `https://pakimdaad.herokuapp.com/api/conversation`, -->
         const res = fetch(
-            `http://localhost:5000/api/conversation`,
+            `https://pakimdaad.herokuapp.com/api/conversation`,
             {
                 method: "GET",
                 headers: {
                     authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
             }
-        )
-            .then((res) => res.json())
-            .then((data) => {
+        ).then((res) => res.json()).then((data) => {
                 const chatlist = document.getElementById("chat")
-
+                const receiverId= localStorage.getItem("receiverId")
+chatlist.innerHTML = ""
                 const user = JSON.parse(localStorage.getItem("user"))._id;
-                console.log(user)
                 
-                data.data.map((item) => {
+                let chatfind= false
+                data.data.map((item,i) => {
                     
-                    const a = document.createElement('a')
+                    // const a = document.createElement('div')
+                    
+                    
+
+                    if(receiverId){
+                        console.log(receiverId)
+
+                    if(item.members[0]._id.toString()==receiverId.toString() ||item.members[1]._id.toString()==receiverId.toString() ){
+
+chatfind = true
+                        if (item.members[0]._id == user) {
+                            console.log(item.members[1].first_name,"3")
+                            getmessages({
+                                "name": `${item.members[1].first_name} ${item.members[1].last_name}`,
+                                "id": `${item._id}` })
+                        }else{
+                            console.log(item.members[0].first_name,"3")
+
+                            getmessages({
+                                "name": `${item.members[0].first_name} ${item.members[0].last_name}`,
+                                "id": `${item._id}` })
+
+                        }
+                    }}
                     if (item.members[0]._id == user) {
-                        getmessages({
-                            "name": `${data.data[0].members[1].first_name} ${data.data[0].members[1].last_name}`,
-                            "id": `${data.data[0]._id}` })
-                        a.innerHTML = `
-      <a class="d-flex align-items-center" href="#" onclick='getmessages({
+                     
+// a.className="d-flex align-items-center chat-names"
+
+chatlist.innerHTML += `
+    <div class="d-flex align-items-center chat-names"  onclick="getmessages({
         "name": "${item.members[1].first_name} ${item.members[1].last_name}",
-        "id": "${item._id}"})'>
+        "id": "${item._id}"})"
+    >
       <div class="flex-shrink-0">
         <img
         class="avatar dp"
@@ -997,15 +1039,14 @@ title: Name Search
         <div class="flex-grow-1 ms-3">
           <h3>${item.members[1].first_name +" "+ item.members[1].last_name}</h3>
           
-        </div></a>`
+        </div></div>`
                     } else {
-                        getmessages({
-                            "name": `${data.data[0].members[0].first_name} ${data.data[0].members[0].last_name}`,
-                            "id": `${data.data[0]._id}` })
-                        a.innerHTML = `
-    <a class="d-flex align-items-center" href="#" onclick='getmessages({
-        "name": "${item.members[0].first_name} ${item.members[0].last_name}",
-        "id": "${item._id}"})'>
+                        // a.className="d-flex align-items-center chat-names"   
+                        chatlist.innerHTML += `
+                        <div class="d-flex align-items-center chat-names"  onclick="getmessages({
+        "name": "${item.members[1].first_name} ${item.members[1].last_name}",
+        "id": "${item._id}"})"
+    > 
     <div class="flex-shrink-0">
         <img
         class="avatar dp"
@@ -1018,22 +1059,43 @@ title: Name Search
       <div class="flex-grow-1 ms-3">
         <h3>${item.members[0].first_name +" "+ item.members[0].last_name}</h3>
         
-      </div></a>`
+      </div></div>`
 
                     }
-                    chatlist.appendChild(a)
+                    // chatlist.appendChild(a)
+
+if(!data.data[i+1]){
+    if(!chatfind){
+        if (data.data[0].members[0]._id == user) {
+console.log(data.data[0].members[1].first_name,"1")
+            getmessages({
+                "name": `${data.data[0].members[1].first_name} ${data.data[0].members[1].last_name}`,
+                "id": `${data.data[0]._id}` })
+        }else{
+            console.log(data.data[0].members[0].first_name,"2")
+            getmessages({
+                "name": `${data.data[0].members[0].first_name} ${data.data[0].members[0].last_name}`,
+                "id": `${data.data[0]._id}` })
+
+        }
+    }
+}
+
+                    
                 })
             })
-    }
+    }    
     function getmessages(data){
+        
+        localStorage.setItem("receiverId","")
         localStorage.setItem("conversation",JSON.stringify(data.id))
         localStorage.setItem("name",JSON.stringify(data.name))
-
+        
         const sendname = document.getElementById("sendername")
         sendname.innerHTML=data.name
 
         const res = fetch(
-            `http://localhost:5000/api/messages/${data.id}`,
+            `https://pakimdaad.herokuapp.com/api/messages/${data.id}`,
             {
                 method: "GET",
                 headers: {
@@ -1082,7 +1144,7 @@ sendbox.appendChild(`<p>No Chats available<p>`)
     let text = document.getElementById("messagetext").value
     const conversationId = JSON.parse(localStorage.getItem("conversation"))
     const response = await fetch(
-        `http://localhost:5000/api/messages`,
+        `https://pakimdaad.herokuapp.com/api/messages`,
         {
           method: "POST", // *GET, POST, PUT, DELETE, etc.
           headers: {
