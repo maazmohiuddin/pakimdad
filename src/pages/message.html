@@ -957,7 +957,6 @@ title: Name Search
 <script>
     getconversation()
     function getconversation() {
-        <!-- `https://pakimdaad.herokuapp.com/api/conversation`, -->
         const res = fetch(
             `http://localhost:5000/api/conversation`,
             {
@@ -966,21 +965,41 @@ title: Name Search
                     authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
             }
-        )
-            .then((res) => res.json())
-            .then((data) => {
+        ).then((res) => res.json()).then((data) => {
                 const chatlist = document.getElementById("chat")
+                const receiverId= localStorage.getItem("receiverId")
 
                 const user = JSON.parse(localStorage.getItem("user"))._id;
-                console.log(user)
                 
-                data.data.map((item) => {
+                let chatfind= false
+                data.data.map((item,i) => {
                     
                     const a = document.createElement('a')
+                    
+
+                    if(receiverId){
+                        console.log(receiverId)
+
+                    if(item.members[0]._id.toString()==receiverId.toString() ||item.members[1]._id.toString()==receiverId.toString() ){
+                        console.log(receiverId)
+chatfind = true
+                        if (item.members[0]._id == user) {
+                            console.log(item.members[1].first_name,"3")
+                            getmessages({
+                                "name": `${item.members[1].first_name} ${item.members[1].last_name}`,
+                                "id": `${item._id}` })
+                        }else{
+                            console.log(item.members[0].first_name,"3")
+
+                            getmessages({
+                                "name": `${item.members[0].first_name} ${item.members[0].last_name}`,
+                                "id": `${item._id}` })
+
+                        }
+                    }}
                     if (item.members[0]._id == user) {
-                        getmessages({
-                            "name": `${data.data[0].members[1].first_name} ${data.data[0].members[1].last_name}`,
-                            "id": `${data.data[0]._id}` })
+                     
+
                         a.innerHTML = `
       <a class="d-flex align-items-center" href="#" onclick='getmessages({
         "name": "${item.members[1].first_name} ${item.members[1].last_name}",
@@ -999,9 +1018,7 @@ title: Name Search
           
         </div></a>`
                     } else {
-                        getmessages({
-                            "name": `${data.data[0].members[0].first_name} ${data.data[0].members[0].last_name}`,
-                            "id": `${data.data[0]._id}` })
+                       
                         a.innerHTML = `
     <a class="d-flex align-items-center" href="#" onclick='getmessages({
         "name": "${item.members[0].first_name} ${item.members[0].last_name}",
@@ -1022,13 +1039,35 @@ title: Name Search
 
                     }
                     chatlist.appendChild(a)
+
+if(!data.data[i+1]){
+    if(!chatfind){
+        if (data.data[0].members[0]._id == user) {
+console.log(data.data[0].members[1].first_name,"1")
+            getmessages({
+                "name": `${data.data[0].members[1].first_name} ${data.data[0].members[1].last_name}`,
+                "id": `${data.data[0]._id}` })
+        }else{
+            console.log(data.data[0].members[0].first_name,"2")
+            getmessages({
+                "name": `${data.data[0].members[0].first_name} ${data.data[0].members[0].last_name}`,
+                "id": `${data.data[0]._id}` })
+
+        }
+    }
+}
+
+                    
                 })
             })
     }
+    
     function getmessages(data){
+        
+        localStorage.setItem("receiverId","")
         localStorage.setItem("conversation",JSON.stringify(data.id))
         localStorage.setItem("name",JSON.stringify(data.name))
-
+        
         const sendname = document.getElementById("sendername")
         sendname.innerHTML=data.name
 

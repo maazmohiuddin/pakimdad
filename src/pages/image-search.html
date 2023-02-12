@@ -138,7 +138,14 @@ title: Search
         <div class="container" id="moddiv"></div>
       </div>
       <footer class="modal-card-foot">
-        <button class="button raised primary-btn modal-dismiss">Close</button>
+        <button class="button raised primary-btn modal-dismiss"  onclick="makeconversation()">
+                
+          Report
+        </button>
+        
+        <button class="button raised primary-btn modal-dismiss" onclick="removerconversation()">
+          Close
+        </button>
       </footer>
     </div>
   </div>
@@ -306,7 +313,8 @@ border: 2px solid #7aff99; */
         "altcontact": "${data.data[i].altContact}",
         "address": "${data.data[i].address}",
         "info": "${data.data[i].info}",
-        "images": "${data.data[i].images}"
+        "images": "${data.data[i].images}",
+        "user_id":"${data.data[i].user_id}"
       })'>
         View More
       </button>
@@ -332,9 +340,7 @@ border: 2px solid #7aff99; */
       });
   }
   async function datamap(body) {
-    await console.log(body);
-    // body = JSON.parse(body);
-    console.log(body.name);
+    localStorage.setItem("receiverId",body.user_id)
 
     const datamodal = document.getElementById("moddiv");
     const fname = document.getElementById("fname");
@@ -360,6 +366,39 @@ border: 2px solid #7aff99; */
     `;
     datamodal.appendChild(dataDiv);
   }
+  
+  async function makeconversation(){
+    const receiverId= localStorage.getItem("receiverId")
+    
+    
+    
+    const res = fetch(
+      `http://localhost:5000/api/conversation`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body:JSON.stringify({
+          receiverId:receiverId
+        })
+      }
+      
+    )
+      .then((res) => res.json())
+      .then((data) => {
+      if(data.success){
+        window.location.replace("http://localhost:3000/message.html")
+
+    
+      }
+      })
+    
+      }
+      async function removerconversation(){
+        localStorage.setItem("receiverId",body.user_id)
+      }
 </script>
 
 {{> footer-side-light}}

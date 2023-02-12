@@ -656,12 +656,13 @@ border: 2px solid #7aff99; */
           altContact: altContact?.value,
           address: address?.value,
           info: info?.value,
+          user_id:JSON.parse(localStorage.getItem("user"))._id
         };
 
         console.log(datapayload);
 
         const response = await fetch(
-          `https://pakimdaad.herokuapp.com/api/query`,
+          `http://localhost:5000/api/query`,
           {
             method: "POST", // *GET, POST, PUT, DELETE, etc.S
             headers: {
