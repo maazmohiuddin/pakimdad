@@ -992,86 +992,80 @@ chatlist.innerHTML = ""
                 const user = JSON.parse(localStorage.getItem("user"))._id;
                 
                 let chatfind= false
-                data.data.map((item,i) => {
+                data.data.map((item,i) => {                 
                     
-                    // const a = document.createElement('div')
-                    
-                    
-
                     if(receiverId){
-                        console.log(receiverId)
+                        
 
                     if(item.members[0]._id.toString()==receiverId.toString() ||item.members[1]._id.toString()==receiverId.toString() ){
 chatfind = true
                         if (item.members[0]._id == user) {
-                            console.log(item.members[1].first_name,"3")
+                            
                             getmessages({
                                 "name": `${item.members[1].first_name} ${item.members[1].last_name}`,
                                 "id": `${item._id}` })
                         }else{
-                            console.log(item.members[0].first_name,"3")
+                            
 
                             getmessages({
                                 "name": `${item.members[0].first_name} ${item.members[0].last_name}`,
                                 "id": `${item._id}` })
 
                         }
-                    }}
-                    if (item.members[0]._id == user) {
-                     
-// a.className="d-flex align-items-center chat-names"
-
-chatlist.innerHTML += `
-    <div class="d-flex align-items-center chat-names"  onclick="getmessages({
-        "name": "${item.members[1].first_name} ${item.members[1].last_name}",
-        "id": "${item._id}"})"
-    >
-      <div class="flex-shrink-0">
-        <img
-        class="avatar dp"
-        src="https://via.placeholder.com/250x250"
-        alt=""
-        data-demo-src="assets/img/avatars/helen.jpg"
-      />
-          
-        </div>
-        <div class="flex-grow-1 ms-3">
-          <h3>${item.members[1].first_name +" "+ item.members[1].last_name}</h3>
-          
-        </div></div>`
-                    } else {
-                        // a.className="d-flex align-items-center chat-names"   
-                        chatlist.innerHTML += `
-                        <div class="d-flex align-items-center chat-names"  onclick="getmessages({
-        "name": "${item.members[1].first_name} ${item.members[1].last_name}",
-        "id": "${item._id}"})"
-    > 
-    <div class="flex-shrink-0">
-        <img
-        class="avatar dp"
-        src="https://via.placeholder.com/250x250"
-        alt=""
-        data-demo-src="assets/img/avatars/helen.jpg"
-      />
-        
-      </div>
-      <div class="flex-grow-1 ms-3">
-        <h3>${item.members[0].first_name +" "+ item.members[0].last_name}</h3>
-        
-      </div></div>`
-
+                    }}else{
+                        
+                        if (item.members[0]._id == user) {
+                         
+    // a.className="d-flex align-items-center chat-names"
+    
+    chatlist.innerHTML += `<a class="d-flex align-items-center chat-names" href="#"
+    onclick='getmessages({"name":"${item.members[1].first_name} ${item.members[1].last_name}",
+    "id":"${item._id}"})'>
+          <div class="flex-shrink-0">
+            <img
+            class="avatar dp"
+            src="https://via.placeholder.com/250x250"
+            alt=""
+            data-demo-src="assets/img/avatars/helen.jpg"
+          />
+              
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <h3>${item.members[1].first_name +" "+ item.members[1].last_name}</h3>
+              
+            </div></a>`
+                        } else {
+                            // a.className="d-flex align-items-center chat-names"   
+                            chatlist.innerHTML += `<a class="d-flex align-items-center chat-names"   href="#"
+                            onclick='getmessages({"name":"${item.members[0].first_name} ${item.members[0].last_name}",
+                                "id":"${item._id}"})'> 
+        <div class="flex-shrink-0">
+            <img
+            class="avatar dp"
+            src="https://via.placeholder.com/250x250"
+            alt=""
+            data-demo-src="assets/img/avatars/helen.jpg"
+          />
+            
+          </div>
+          <div class="flex-grow-1 ms-3">
+            <h3>${item.members[0].first_name +" "+ item.members[0].last_name}</h3>
+            
+          </div></a>`
+    
+                        }
                     }
                     // chatlist.appendChild(a)
 
 if(!data.data[i+1]){
     if(!chatfind){
         if (data.data[0].members[0]._id == user) {
-console.log(data.data[0].members[1].first_name,"1")
+
             getmessages({
                 "name": `${data.data[0].members[1].first_name} ${data.data[0].members[1].last_name}`,
                 "id": `${data.data[0]._id}` })
         }else{
-            console.log(data.data[0].members[0].first_name,"2")
+
             getmessages({
                 "name": `${data.data[0].members[0].first_name} ${data.data[0].members[0].last_name}`,
                 "id": `${data.data[0]._id}` })
@@ -1089,7 +1083,7 @@ console.log(data.data[0].members[1].first_name,"1")
         localStorage.setItem("receiverId","")
         localStorage.setItem("conversation",JSON.stringify(data.id))
         localStorage.setItem("name",JSON.stringify(data.name))
-        
+        console.log(data)
         const sendname = document.getElementById("sendername")
         sendname.innerHTML=data.name
 
@@ -1137,6 +1131,12 @@ sendbox.appendChild(`<p>No Chats available<p>`)
     }
 }
 })
+setInterval(()=>{
+    getmessages({
+        "id":JSON.parse(localStorage.getItem("conversation")),
+        "name":JSON.parse(localStorage.getItem("name"))
+                })
+},3000)
     }
  async function sendmessage(){
     const sender = JSON.parse(localStorage.getItem("user"))._id
