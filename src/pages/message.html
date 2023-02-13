@@ -1131,12 +1131,7 @@ sendbox.appendChild(`<p>No Chats available<p>`)
     }
 }
 })
-setInterval(()=>{
-    getmessages({
-        "id":JSON.parse(localStorage.getItem("conversation")),
-        "name":JSON.parse(localStorage.getItem("name"))
-                })
-},3000)
+
     }
  async function sendmessage(){
     const sender = JSON.parse(localStorage.getItem("user"))._id
