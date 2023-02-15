@@ -76,6 +76,7 @@
     "scrollreveal": "^3.4.0",
     "simplebar": "^5.3.0",
     "slick-carousel": "^1.8.1",
+    "socket.io-client": "^4.6.0",
     "timedropper": "^1.0.0",
     "vivus": "^0.4.3",
     "wallop": "^2.4.1"

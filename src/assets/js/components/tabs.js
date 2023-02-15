@@ -90,7 +90,7 @@ function initCodeTabs() {
       .find("[data-backend-sample]")
       .removeClass("active");
 
-    console.log(language);
+    
 
     $("[data-backend-sample=" + language + "]").addClass("active");
   });
@@ -107,7 +107,7 @@ function initCodeTabs() {
       .find("[data-frontend-sample]")
       .removeClass("active");
 
-    console.log(language);
+    
 
     $("[data-frontend-sample=" + language + "]").addClass("active");
   });
