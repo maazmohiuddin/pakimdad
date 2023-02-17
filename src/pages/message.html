@@ -973,12 +973,31 @@ title: Name Search
     <script src="assets/js/core.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    
+<script src="http://localhost:5000/socket.io/socket.io.js"></script>
     <!-- <script src="./message.js" type="text/javascript"></script> -->
 </body>
 
 <script>
-    
+    socketConnect()
+    function socketConnect() {
+
+
+        var Socket = io("http://localhost:5000");
+        Socket.addEventListener("open", function () {
+            console.log("========2")
+
+        })
+        if (window.WebSocket) {
+            console.log("========1")
+            Socket.onopen = function () {
+                console.log("========3")
+
+                // Web Socket is connected, send data using send()
+
+            };
+        }
+
+    }
     getconversation()
     function getconversation() {
         const res = fetch(
@@ -1116,7 +1135,7 @@ title: Name Search
                     const user = JSON.parse(localStorage.getItem("user"))._id;
                     if (data.data.length == 0) {
 
-                        sendbox.innerHTML=`<p>No Chats available<p>`
+                        sendbox.innerHTML = `<p>No Chats available<p>`
 
                     } else {
 
@@ -1138,7 +1157,7 @@ title: Name Search
                         })
                         sendbox.appendChild(ul)
                     }
-                    
+
 
                 }
 

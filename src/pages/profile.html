@@ -85,7 +85,7 @@ title: Profile
     const table = document.getElementById("flextable")
     table.innerHTML=''
     const res = fetch(
-      `http://localhost:5000/api/query/getmyqueries`,
+      `https://pakimdaad.herokuapp.com/api/query/getmyqueries`,
       {
         method: "GET",
         headers: {
@@ -158,7 +158,7 @@ ${item.found?
 async function found(id){
   console.log(id)
   const res = fetch(
-    `http://localhost:5000/api/query/${id.id}`,
+    `https://pakimdaad.herokuapp.com/api/query/${id.id}`,
     {
       method: "PATCH",
       headers: {
