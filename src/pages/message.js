@@ -1,5 +1,5 @@
 const { io } = require("socket.io-client"); 
-var socket = io.connect('http://localhost:5000', { withCredentials: true });
+var socket = io.connect('https://pakimdaad.herokuapp.com', { withCredentials: true });
 console.log("Teri maa ki ankh")
 socket.on('connect', function () {
 

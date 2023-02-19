@@ -979,7 +979,7 @@ title: Name Search
     <script src="assets/js/core.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script src="http://localhost:5000/socket.io/socket.io.js"></script>
+<script src="https://pakimdaad.herokuapp.com/socket.io/socket.io.js"></script>
     <!-- <script src="./message.js" type="text/javascript"></script> -->
 </body>
 
@@ -988,7 +988,7 @@ title: Name Search
     function socketConnect() {
 
 
-        var Socket = io("http://localhost:5000");
+        var Socket = io("https://pakimdaad.herokuapp.com");
         Socket.addEventListener("open", function () {
             console.log("========2")
 
